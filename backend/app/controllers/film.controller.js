@@ -2,17 +2,31 @@ const Film = require('../models/film.model');
 
 // Create nd Save a Film
 exports.create = (req, res) => {
-    // Validate requst
-    if(!req.body.content) {
+    // Validate request
+    if(!req.body.title) {
         return res.status(400).send({
-            message: "Film content cannot be empty"
+            message: "Film title cannot be empty"
         });
     }
 
     // Create a Film
     const film = new Film({
-        title: req.body.title,
-        content: req.body.content
+        Title: req.body.title,
+        Year: req.body.year,
+        Rated: req.body.rated, // It's a parental guidance
+        Released: req.body.released,
+        Runtime: req.body.runtime``, // Always in minutes!
+        Genre: req.body.genre,
+        Director: req.body.director,
+        Writer: req.body.writer,
+        Actors: req.body.actors, // Only key actors!
+        Plot: req.body.plot, // Short description
+        Language: req.body.language, // E.X Pusher is in Danish, Swedish, and Serbian.
+        Country: req.body.country,
+        Awards: req.body.awards,
+        Poster: req.body.poster, // URL for the poster
+        Likes: req.body.likes,
+        Type: req.body.type // Is it a movie or a TV Series? Or a Short Series?
     });
 
     // Save Film in the database
@@ -21,7 +35,7 @@ exports.create = (req, res) => {
             res.send(data);
         }).catch(err => {
             res.status(500).send({
-                message: err.message || "Some error occured while creating the Film."
+                message: err.message || "Some error occurred while creating the Film."
             });
     })
 };
