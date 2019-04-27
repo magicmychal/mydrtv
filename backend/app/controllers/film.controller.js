@@ -15,7 +15,7 @@ exports.create = (req, res) => {
         Year: req.body.year,
         Rated: req.body.rated, // It's a parental guidance
         Released: req.body.released,
-        Runtime: req.body.runtime``, // Always in minutes!
+        Runtime: req.body.runtime, // Always in minutes!
         Genre: req.body.genre,
         Director: req.body.director,
         Writer: req.body.writer,
@@ -23,10 +23,12 @@ exports.create = (req, res) => {
         Plot: req.body.plot, // Short description
         Language: req.body.language, // E.X Pusher is in Danish, Swedish, and Serbian.
         Country: req.body.country,
-        Awards: req.body.awards,
+        Awards: req.body.awards || "No awards",
         Poster: req.body.poster, // URL for the poster
-        Likes: req.body.likes,
-        Type: req.body.type // Is it a movie or a TV Series? Or a Short Series?
+        Type: req.body.type, // Is it a movie or a TV Series? Or a Short Series?
+        Likes: req.body.likes || 0,
+        Comments: req.body.comments || [],
+        VideoSource: req.body.videosource // That's the URL for the movie.
     });
 
     // Save Film in the database
@@ -75,9 +77,9 @@ exports.findOne = (req, res) => {
 };
 
 // Update a film identified by the flmId in the request
-exports.update = (res, req) => {
+exports.update = (req, res) => {
     // Validate Request
-    if(!req.body.content) {
+    if(!req.body.title) {
         return res.status(400).send({
             message: "Film content can not be empty"
         });
@@ -85,8 +87,26 @@ exports.update = (res, req) => {
 
     // Find film and update it with the request body
     Film.findByIdAndUpdate(req.params.filmId, {
-        title: req.body.title || "Untitled Film",
-        content: req.body.content
+
+        Title: req.body.title,
+        Year: req.body.year,
+        Rated: req.body.rated, // It's a parental guidance
+        Released: req.body.released,
+        Runtime: req.body.runtime, // Always in minutes!
+        Genre: req.body.genre,
+        Director: req.body.director,
+        Writer: req.body.writer,
+        Actors: req.body.actors, // Only key actors!
+        Plot: req.body.plot, // Short description
+        Language: req.body.language, // E.X Pusher is in Danish, Swedish, and Serbian.
+        Country: req.body.country,
+        Awards: req.body.awards || "No awards",
+        Poster: req.body.poster, // URL for the poster
+        Type: req.body.type, // Is it a movie or a TV Series? Or a Short Series?
+        Likes: req.body.likes || 0,
+        Comments: req.body.comments || [],
+        VideoSource: req.body.videosource // That's the URL for the movie.
+
     }, {new: true})
         .then(film => {
             if(!film) {

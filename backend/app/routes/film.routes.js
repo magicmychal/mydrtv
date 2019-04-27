@@ -17,4 +17,4 @@ module.exports = (app) => {
     // Delete a Film with filmId
     app.delete('/films/:filmId', films.delete);
 
-}
+};

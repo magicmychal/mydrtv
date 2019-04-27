@@ -15,8 +15,10 @@ const FilmSchema = mongoose.Schema({
     Country: String,
     Awards: String,
     Poster: String, // URL for the poster
+    Type: String, // Is it a movie or a TV Series? Or a Short Series?
     Likes: Number,
-    Type: String // Is it a movie or a TV Series? Or a Short Series?
+    Comments: Array,
+    VideoSource: String // That's the URL for the movie
 }, {
     timestamp: true // Automatically will add "Created at", "Updated at"
 });
