@@ -17,10 +17,4 @@ module.exports = (app) => {
     // Delete a Film with filmId
     app.delete('/films/:filmId', films.delete);
 
-    // testing
-    app.get('/testing', films.testing);
-
-    app.get('/dupa', (req, res) => {
-        res.json({"message": "Welcome to EasyNotes application. Take notes quickly. Organize and keep track of all your notes."});
-    });
 }
