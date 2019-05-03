@@ -64,7 +64,7 @@ exports.findOne = (req, res) => {
     });
 };
 
-// Update a film identified by the flmId in the request
+// Update a user identified by the flmId in the request
 exports.update = (req, res) => {
     // Validate Request
     if(!req.body.name) {
@@ -73,7 +73,7 @@ exports.update = (req, res) => {
         });
     }
 
-    // Find film and update it with the request body
+    // Find user and update it with the request body
     User.findByIdAndUpdate(req.params.usersId, {
         Name: req.body.name,
         LastName: req.body.lastname,
@@ -102,9 +102,9 @@ exports.update = (req, res) => {
     });
 };
 
-// Delete a user with the specified filmId in the request
+// Delete a user with the specified userId in the request
 exports.delete = (req, res) => {
-    Film.findByIdAndRemove(req.params.filmId)
+    User.findByIdAndRemove(req.params.usersId)
         .then(users => {
             if(!users) {
                 return res.status(404).send({
