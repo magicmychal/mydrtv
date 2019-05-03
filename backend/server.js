@@ -35,6 +35,9 @@ app.get('/', (req, res) => {
 // Require Films routes
 require('./app/routes/film.routes.js')(app);
 
+// Require user4s routes
+require('./app/routes/users.routes.js')(app);
+
 
 // listen for requests
 app.listen(3000, () => {

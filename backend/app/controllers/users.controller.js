@@ -3,20 +3,20 @@ const User = require('../models/users.model');
 // Create and Save a user
 exports.create = (req, res) => {
     // Validate request
-    if(!req.body.title) {
+    if(!req.body.name) {
         return res.status(400).send({
-            message: "Film title cannot be empty"
+            message: "Username cannot be empty"
         });
     }
 
     // Create a user
     const users = new User({
-        Name: String,
-        LastName: String,
-        Email: String,
-        Password: String,
-        Gender: String,
-        History: Array
+        Name: req.body.name,
+        LastName: req.body.lastname,
+        Email: req.body.email,
+        Password: req.body.password,
+        Gender: req.body.gender,
+        History: req.body.history || []
     });
 
     // Save user in the database
@@ -37,7 +37,7 @@ exports.findAll = (req, res) => {
             res.send(users);
         }).catch(err => {
         res.status(500).send({
-            message: err.message || "Some error occurred while retrieving films."
+            message: err.message || "Some error occurred while retrieving users."
         });
     });
 };
@@ -48,7 +48,7 @@ exports.findOne = (req, res) => {
         .then(users => {
             if(!users) {
                 return res.status(404).send({
-                    message: "Film not found with id " + req.params.usersId
+                    message: "User not found with id " + req.params.usersId
                 });
             }
             res.send(users);
