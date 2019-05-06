@@ -11,11 +11,13 @@ import {VgBufferingModule} from 'videogular2/buffering';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlayerComponent } from './player/player.component';
+import { DetailsComponent } from './video/details/details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PlayerComponent
+    PlayerComponent,
+    DetailsComponent
   ],
   imports: [
     BrowserModule,

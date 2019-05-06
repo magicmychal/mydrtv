@@ -1,4 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+/*
+Colors
+*/
+$blueGray: #263238;
+$lightWhite: #CFBABA;
 body{
   margin: 0 !important;
+  background-color: $blueGray !important;
+  color: $lightWhite !important;
 }
