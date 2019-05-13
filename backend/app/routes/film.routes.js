@@ -9,7 +9,7 @@ module.exports = (app) => {
     app.get('/films', films.findAll);
 
     // Retrieve a single Film with filmId
-    app.get('/films', films.findOne);
+    app.get('/films/:filmId', films.findOne);
 
     // Update a Film with filmId
     app.put('/films/:filmId', films.update);

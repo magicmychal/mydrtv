@@ -11,7 +11,10 @@ import {VgBufferingModule} from 'videogular2/buffering';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlayerComponent } from './player/player.component';
-import { DetailsComponent } from './video/details/details.component';
+import { DetailsComponent } from './films/details/details.component';
+import {HttpClientModule} from '@angular/common/http';
+import {StoreModule} from '@ngrx/store';
+import {filmsReducer} from './films/state-management/films.reducer';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,8 @@ import { DetailsComponent } from './video/details/details.component';
     VgControlsModule,
     VgOverlayPlayModule,
     VgBufferingModule,
+    HttpClientModule,
+    StoreModule.forRoot({films: filmsReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
