@@ -1,42 +1,39 @@
-<div class="container-fluid">
+<div *ngIf="notFound">
+  <h2>{{notFound}}</h2>
+</div>
+
+<div *ngIf="film" class="container-fluid">
   <div class="row">
     <div class="col-12">
-      <h1>The movie of movies</h1>
+      <h1>{{film.Title}}</h1>
     </div>
   </div>
   <div class="row justify-content-md-center row-player">
     <div class="col-6">
       <div routerLink="player">
-        <img src="https://via.placeholder.com/1080x720" alt="Video player" class="img-fluid">
+        <img src="{{film.Poster}}" alt="Video player" class="img-fluid">
       </div>
     </div>
   </div>
   <div class="row justify-content-md-center">
     <div class="col-7">
       <p>
-        Stand in doorway, unwilling to chose whether to stay in or go out attempt to leap between furniture but woefully
-        miscalibrate and bellyflop onto the floor; what's your problem? i meant to do that now i shall wash myself
-        intently
-        Attempt to leap between furniture but woefully miscalibrate and bellyflop onto the floor; what's your problem? i
-        meant to do that now i shall wash myself intently see owner, run in terror and warm up laptop with butt lick
-        butt fart rainbows until owner yells pee in litter box hiss at cats lick the plastic bag. Gimme attention gimme
-        attention gimme attention gimme attention gimme attention gimme attention just kidding i don't want it anymore
-        meow bye fight own tail get video posted to internet for chasing red dot or head nudges .
+       {{film.Plot}}
       </p>
     </div>
     <div class="col-3">
       <h4>Director</h4>
-      <span>Name</span>
+      <span>{{film.Director}}</span>
       <h4>Genre</h4>
-      <span>Name</span>
+      <span>{{film.Genre}}</span>
       <h4>Cast</h4>
-      <span>Names</span>
+      <span>{{film.Actors}}</span>
       <h4>Year</h4>
-      <span>Number</span>
-      <h4>Language</h4>
-      <span>Name</span>
+      <span>{{film.Year}}</span>
+      <h4>Language(s)</h4>
+      <span>{{film.Language}}</span>
       <h4>Subtitles</h4>
-      <span>Names</span>
+      <span>{{film.Subtitles}}</span>
 
     </div>
   </div>

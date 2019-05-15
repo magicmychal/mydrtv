@@ -22,18 +22,14 @@ export class PlayerComponent implements OnInit {
   }
 
   ngOnInit() {
-    //this.getMovie();
-    this.filmId = this.route.snapshot.params.id;
-    // this.rest.getMovie('5cd9655d19fcad52cc9bb9ad').subscribe(
-    //   (data: {}) => {
-    //     console.log(data);
-    //     this.film = data;
-    //   });
+    // Get the ID of the movie from the parameter
+   this.filmId = this.route.snapshot.params.id;
     this.rest.getMovie(this.filmId).subscribe({
       next: x => this.film = x,
       error: err => this.filmNotFound(),
       complete: () => console.log('done')
     });
+
   }
 
   // if the film was not found in the database
@@ -43,13 +39,5 @@ export class PlayerComponent implements OnInit {
     setTimeout(() => {
       this.router.navigate(['/']);
     }, 3000);  //3s
-  }
-
-  getMovie() {
-    this.films = [];
-    this.rest.getMovie('5cd9655d19fcad52cc9bb9ad').subscribe((data: {}) => {
-      console.log(data);
-      this.films = data;
-    });
   }
 }

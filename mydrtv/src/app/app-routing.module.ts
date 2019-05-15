@@ -7,7 +7,7 @@ const routes: Routes = [
   {path: '', redirectTo: 'app', pathMatch: 'full'},
 
   {
-    path: 'film',
+    path: 'film/:id',
     component: DetailsComponent,
     // TODO: fix the routing to the player
   },
