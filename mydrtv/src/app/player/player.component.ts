@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Injectable } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Store} from '@ngrx/store';
 import {FilmModel} from '../models/film.model';
 import {Observable} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import {FilmRestService} from '../services/film-rest.service';
 
 
 @Component({
@@ -12,24 +12,26 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./player.component.scss']
 })
 export class PlayerComponent implements OnInit {
-  films: Observable<{films: FilmModel[]}>;
-
+  films: any = [];
+  film: any;
   constructor(
-    private store: Store<{films: {films: FilmModel[]} }>,
-    private http: HttpClient
+    public rest: FilmRestService
   ) { }
 
   ngOnInit() {
-    console.log('on init');
-    this.films = this.store.select('films');
-    console.log(this.films);
-    console.log('load movie here');
-    this.getMovie('5cd9655d19fcad52cc9bb9ad');
+    //this.getMovie();
+    this.rest.getMovie('5cd9655d19fcad52cc9bb9ad').subscribe((data: {}) => {
+      console.log(data);
+      this.film = data;
+    });
   }
 
-  getMovie(filmId: string): any {
-    let apiURL = 'http://localhost:3000/films/';
-    console.log('GET' + filmId);
-    this.http.get(apiURL + '/' + filmId).subscribe(res => console.log(res['Actors']));
+  getMovie() {
+    this.films = [];
+    this.rest.getMovie('5cd9655d19fcad52cc9bb9ad').subscribe((data: {}) => {
+      console.log(data);
+      console.log('huj mi w pupe');
+      this.films = data;
+    });
   }
 }

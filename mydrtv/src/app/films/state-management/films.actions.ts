@@ -1,5 +1,5 @@
 import {Action} from '@ngrx/store';
-import {FilmModel} from "../../models/film.model";
+import {FilmModel} from '../../models/film.model';
 
 export const GET_ALL_FILMS = 'GET_ALL_FILMS';
 
