@@ -1,8 +1,5 @@
-<h2>Requested id: {{filmId}}</h2>
-<h3>hello</h3>
-<div *ngIf="film">
-  <h2>You're watching {{film.Title}}</h2>
-  <h3>A film by {{film.Director}}</h3>
+<div *ngIf="notFound">
+  <h2>{{notFound}}</h2>
 </div>
 
 <vg-player *ngIf="film" class="full-player">
