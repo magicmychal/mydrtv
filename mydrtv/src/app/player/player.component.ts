@@ -1,9 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Store} from '@ngrx/store';
-import {FilmModel} from '../models/film.model';
-import {Observable} from 'rxjs';
-import { HttpClient } from '@angular/common/http';
 import {FilmRestService} from '../services/film-rest.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import {error} from "selenium-webdriver";
 
 
 @Component({
@@ -12,18 +10,32 @@ import {FilmRestService} from '../services/film-rest.service';
   styleUrls: ['./player.component.scss']
 })
 export class PlayerComponent implements OnInit {
+  public filmId: string;
   films: any = [];
   film: any;
   constructor(
-    public rest: FilmRestService
+    public rest: FilmRestService,
+    private route: ActivatedRoute,
+    private router: Router
   ) { }
 
   ngOnInit() {
     //this.getMovie();
-    this.rest.getMovie('5cd9655d19fcad52cc9bb9ad').subscribe((data: {}) => {
-      console.log(data);
-      this.film = data;
+    this.filmId = this.route.snapshot.params.id;
+    // this.rest.getMovie('5cd9655d19fcad52cc9bb9ad').subscribe(
+    //   (data: {}) => {
+    //     console.log(data);
+    //     this.film = data;
+    //   });
+    this.rest.getMovie(this.filmId).subscribe({
+      next: x => this.film = x,
+      error: err => console.error(err),
+      complete: () => console.log('done')
     });
+  }
+
+  filmNotFound() {
+
   }
 
   getMovie() {

@@ -1,3 +1,9 @@
+<h2>Requested id: {{filmId}}</h2>
+<h3>hello</h3>
+<div *ngIf="film">
+  <h2>You're watching {{film.Title}}</h2>
+  <h3>A film by {{film.Director}}</h3>
+</div>
 
 <vg-player *ngIf="film" class="full-player">
   <vg-overlay-play></vg-overlay-play>
@@ -33,9 +39,3 @@
     <track kind="subtitles" label="Español" src="http://static.videogular.com/assets/subs/pale-blue-dot-es.vtt" srclang="es">
   </video>
 </vg-player>
-<h2>The film is: </h2>
-<h3>hello</h3>
-<div *ngIf="film">
-  <h2>You're watching {{film.Title}}</h2>
-  <h3>A film by {{film.Director}}</h3>
-</div>

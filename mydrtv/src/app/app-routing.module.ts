@@ -12,7 +12,7 @@ const routes: Routes = [
     // TODO: fix the routing to the player
   },
   {
-    path: 'player',
+    path: 'player/:id',
     component: PlayerComponent
   }
 
