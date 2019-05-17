@@ -19,4 +19,8 @@ export class NavbarComponent implements OnInit {
     console.log('You are logging in');
     this.authService.login(this.email, this.password);
   }
+  logout(){
+    console.log('You are logging out');
+    AuthService.logout();
+  }
 }
