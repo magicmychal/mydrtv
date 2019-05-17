@@ -20,6 +20,8 @@ export class SignupComponent implements OnInit {
 
   notFound: string;
 
+  submitted = false;
+
   constructor(public rest: UsersService,
               private fb: FormBuilder,
               private route: ActivatedRoute,
@@ -28,16 +30,27 @@ export class SignupComponent implements OnInit {
 
   ngOnInit() {
     this.signupForm = this.fb.group({
-        name: [''],
-        lastName: [''],
-        email: [''],
-        password: [''],
+        name: ['', Validators.required],
+        lastName: ['',  Validators.required],
+        email: ['', [Validators.required, Validators.email]],
+        password: ['', [Validators.required, Validators.minLength(6)]],
         retypePassword: [''],
-        gender: ['']
+        gender: ['', Validators.required]
       })
   }
 
+  // convenience getter for easy access to form fields
+  get f() { return this.signupForm.controls; }
+
   onSubmit() {
+    this.submitted = true;
+
+    // stop here if form is invalid
+    if (this.signupForm.invalid) {
+
+        return;
+    }
+
     this.rest.addUser(this.signupForm.value).subscribe({
       next: x => this.selectedUser = x,
       error: err => this.userNotFound(),
@@ -52,4 +65,5 @@ export class SignupComponent implements OnInit {
   }
 
 }
+
 

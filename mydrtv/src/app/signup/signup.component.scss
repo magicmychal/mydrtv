@@ -15,10 +15,6 @@ form {
     margin-top: 50px;
 }
 
-.ng-invalid:not(form)  {
-    border-left: 5px solid #a94442; /* red */
-}
-
 p {
     margin-block-start: 30px;
     margin-block-end: 5px;
@@ -42,4 +38,9 @@ button {
     position: absolute;
     right: 48px;
     bottom: 40px;
+}
+
+.invalid-feedback {
+    color: red;
+    font-size: 6px; 
 }
