@@ -3,18 +3,18 @@ module.exports = (app) => {
     const films = require('../controllers/film.controller');
 
     // Create a new Film
-    app.post('/films-redux', films.create);
+    app.post('/films', films.create);
 
     // Retrieve all Films
-    app.get('/films-redux', films.findAll);
+    app.get('/films', films.findAll);
 
     // Retrieve a single Film with filmId
-    app.get('/films-redux/:filmId', films.findOne);
+    app.get('/films/:filmId', films.findOne);
 
     // Update a Film with filmId
-    app.put('/films-redux/:filmId', films.update);
+    app.put('/films/:filmId', films.update);
 
     // Delete a Film with filmId
-    app.delete('/films-redux/:filmId', films.delete);
+    app.delete('/films/:filmId', films.delete);
 
 };
