@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+
+import { User } from '../entities/users';
+import { UsersService } from '../services/users.service';
 
 
 @Component({
@@ -8,24 +11,44 @@ import { Router } from '@angular/router';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss']
 })
+
 export class SignupComponent implements OnInit {
 
   signupForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private router: Router) {}
+  selectedUser: User;
+
+  notFound: string;
+
+  constructor(public rest: UsersService,
+              private fb: FormBuilder,
+              private route: ActivatedRoute,
+              private router: Router)
+  {}
 
   ngOnInit() {
     this.signupForm = this.fb.group({
-        name: ['', [Validators.required, Validators.minLength(3)]],
-        lastName: ['', [Validators.required, Validators.minLength(3)]],
-        email: ['', [Validators.required, Validators.minLength(3)]],
-        password: ['', [Validators.required, Validators.minLength(3)]],
-        gender: ['', [Validators.required, Validators.minLength(1)]]
+        name: [''],
+        lastName: [''],
+        email: [''],
+        password: [''],
+        retypePassword: [''],
+        gender: ['']
       })
   }
 
   onSubmit() {
-    console.log(this.signupForm.value);
+    this.rest.addUser(this.signupForm.value).subscribe({
+      next: x => this.selectedUser = x,
+      error: err => this.userNotFound(),
+      complete: () => console.log('done')
+    });
+    }
+    // if the user was not found in the database
+    // user is redirected to the homepage
+    userNotFound() {
+      this.notFound = 'Signup failed...';
+      console.log(this.notFound);
   }
 
 }
