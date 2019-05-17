@@ -11,16 +11,16 @@ import {VgBufferingModule} from 'videogular2/buffering';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PlayerComponent } from './player/player.component';
-import { DetailsComponent } from './films/details/details.component';
+import { FilmComponent } from './film/film.component';
 import {HttpClientModule} from '@angular/common/http';
 import {StoreModule} from '@ngrx/store';
-import {filmsReducer} from './films/state-management/films.reducer';
+import {filmsReducer} from './films-redux/state-management/films.reducer';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayerComponent,
-    DetailsComponent
+    FilmComponent
   ],
   imports: [
     BrowserModule,
