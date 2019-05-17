@@ -1,5 +1,5 @@
 const User = require('../models/users.model');
-
+var testUser = { email: 'kelvin@gmai.com', password: '1234'};
 // Create and Save a user
 exports.create = (req, res) => {
     // Validate request
@@ -44,24 +44,26 @@ exports.findAll = (req, res) => {
 
 // Find a single user with a usersId
 exports.findOne = (req, res) => {
-    User.findById(req.params.usersId)
-        .then(users => {
-            if(!users) {
-                return res.status(404).send({
-                    message: "User not found with id " + req.params.usersId
-                });
-            }
-            res.send(users);
-        }).catch(err => {
-        if(err.kind === 'ObjectId') {
-            return res.status(404).send({
-                message: "User not found with id " + req.params.usersId
+    if (req.body) {
+        var user = req.body;
+        console.log(user)
+
+        if (testUser.email===req.body.email && testUser.password === req.body.password) {
+            var token = jwt.sign(user, JWT_Secret);
+            res.status(200).send({
+                signed_user: user,
+                token: token
+            });
+        } else {
+            res.status(403).send({
+                errorMessage: 'Authorisation required!'
             });
         }
-        return res.status(500).send({
-            message: "Error retrieving user with id " + req.params.usersId
+    } else {
+        res.status(403).send({
+            errorMessage: 'Please provide email and password'
         });
-    });
+    }
 };
 
 // Update a user identified by the flmId in the request

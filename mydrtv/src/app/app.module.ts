@@ -15,15 +15,21 @@ import { FilmComponent } from './film/film.component';
 import {HttpClientModule} from '@angular/common/http';
 import {StoreModule} from '@ngrx/store';
 import {filmsReducer} from './films-redux/state-management/films.reducer';
+import { NavbarComponent } from './navbar/navbar.component';
+import { ProfileComponent } from './profile/profile.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayerComponent,
-    FilmComponent
+    FilmComponent,
+    NavbarComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     VgCoreModule,
     VgControlsModule,
