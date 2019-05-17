@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {PlayerComponent} from './player/player.component';
 import {FilmComponent} from './film/film.component';
+import {LoginComponent} from "./login/login.component";
+import {AuthGuardService} from "./services/auth-guard.service";
 
 const routes: Routes = [
   {path: '', redirectTo: 'app', pathMatch: 'full'},
@@ -13,7 +15,12 @@ const routes: Routes = [
   },
   {
     path: 'player/:id',
-    component: PlayerComponent
+    component: PlayerComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 
 ];

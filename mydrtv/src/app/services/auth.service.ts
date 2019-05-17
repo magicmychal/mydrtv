@@ -6,17 +6,16 @@ import {Router} from '@angular/router';
   providedIn: 'root'
 })
 export class AuthService {
-
+  endpoint = 'http://localhost:3000/users/login';
+  token;
   constructor(
     private http: HttpClient,
     private router: Router
   ) {}
 
-  public get isLoggedIn(): boolean {
+  public isLoggedIn(): boolean {
     return (localStorage.getItem('auth_token') !== null);
   }
-  endpoint = 'http://localhost:3000/users/login';
-  token;
   static logout() {
     localStorage.removeItem('auth_token');
   }
