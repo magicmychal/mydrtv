@@ -1,5 +1,9 @@
 const User = require('../models/users.model');
-var testUser = { email: 'kelvin@gmai.com', password: '1234'};
+const testUser = { email: 'kelvin@gmai.com', password: '1234'};
+// DECLARE JWT-secret
+const JWT_Secret = 'v$nb^HBVy4kZGrUm03sdCxQ@7JYsyYRyBLJP8&XR@VWoAc';
+const jwt = require('jsonwebtoken');
+
 // Create and Save a user
 exports.create = (req, res) => {
     // Validate request
@@ -43,13 +47,13 @@ exports.findAll = (req, res) => {
 };
 
 // Find a single user with a usersId
-exports.findOne = (req, res) => {
+exports.login = (req, res) => {
     if (req.body) {
-        var user = req.body;
-        console.log(user)
+        let user = req.body;
+        console.log(user);
 
         if (testUser.email===req.body.email && testUser.password === req.body.password) {
-            var token = jwt.sign(user, JWT_Secret);
+            let token = jwt.sign(user, JWT_Secret);
             res.status(200).send({
                 signed_user: user,
                 token: token
