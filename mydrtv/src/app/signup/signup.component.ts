@@ -53,7 +53,8 @@ export class SignupComponent implements OnInit {
     this.rest.addUser(this.signupForm.value).subscribe({
       next: x => this.selectedUser = x,
       error: err => this.userNotFound(),
-      complete: () => console.log('done')
+      // TO DO: change it to login, when we have the page
+      complete: () => this.router.navigate(['/'])
     });
     }
     // if the user was not found in the database
