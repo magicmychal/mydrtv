@@ -14,9 +14,16 @@ export class AuthService {
   ) {}
 
   public isLoggedIn(): boolean {
-    return (localStorage.getItem('auth_token') !== null);
+    //return (localStorage.getItem('auth_token') !== null);
+    if (localStorage.getItem('auth_token')) {
+      // user logged in
+      return true;
+    } else {
+      // user logged out
+      return false;
+    }
   }
-  static logout() {
+  public logout() {
     localStorage.removeItem('auth_token');
   }
   login(email: string, password: string) {
