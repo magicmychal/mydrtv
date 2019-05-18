@@ -34,17 +34,9 @@
     </label>
 
     <label>
-      <p>Confirm password:</p>
-      <input type="password" formControlName="retypePassword" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.retypePassword.errors }">
-        <div *ngIf="submitted && f.retypePassword.errors" class="invalid-feedback">
-          <div *ngIf="f.retypePassword.errors.required">Needs to match the password</div>
-        </div>
-  </label>
-
-    <label>
         <p>Gender:</p>
         <select formControlName="gender" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
-          <option value="M">Male</option>
+          <option value="M" selected>Male</option>
           <option value="F">Female</option>
 
           <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
