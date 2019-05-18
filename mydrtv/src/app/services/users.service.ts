@@ -34,6 +34,11 @@ export class UsersService {
     );
   }
 
+  getUser(id: string): Observable<any> {
+    return this.http.get(endpoint + id).pipe(
+      map(this.extractData));
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

@@ -1,3 +1,65 @@
-<p>
-  profile works!
-</p>
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-4">
+        <img class="profile-img" src="http://www.vincegolangco.com/wp-content/uploads/2010/12/batman-for-facebook.jpg" alt="default-profile-image">
+    </div>
+
+    <div class="col-8">
+      
+      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+        <h2>USER PROFILE</h2>
+      
+        <label>
+          Name:
+          </label>
+          <input type="text" value="{{selectedUser.Name}}" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+              <div *ngIf="f.name.errors.required">Name is required</div>
+            </div>      
+      
+        <label>
+          E-mail:
+        </label>
+            <input type="text" value="{{selectedUser.Email}}" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">E-mail is required</div>
+              <div *ngIf="f.email.errors.email">E-mail must be a valid e-mail address</div>
+          </div>
+      
+      
+        <label>
+            Password:
+        </label>
+            <input type="password" value="{{selectedUser.Password}}" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+            </div>
+      
+      
+        <label>
+            Gender:
+        </label>
+            <select formControlName="gender" value="{{selectedUser.Gender}}" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+              <option value="M" selected>Male</option>
+              <option value="F">Female</option>
+      
+              <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+                <div *ngIf="f.gender.errors.required">Gender is required</div>
+              </div>
+            </select>
+      
+
+          <button [disabled]="loading" class="btn btn-primary">Edit</button>
+
+          <button [disabled]="loading" class="btn btn-primary">Save</button>
+      
+      </form>
+    </div>
+
+  </div>
+</div>
+
