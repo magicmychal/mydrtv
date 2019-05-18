@@ -27,4 +27,13 @@ export class AuthService {
         localStorage.setItem('auth_token', resp.token);
       });
   }
+  loginForm(user){
+    //console.log('{email: ' + user.email + ', password:' + user.password + '}');
+     this.http.post(this.endpoint, {email: user.email, password: user.password})
+      .subscribe((resp: any) => {
+        this.router.navigate(['/']);
+        localStorage.setItem('auth_token', resp.token);
+      });
+  }
+
 }

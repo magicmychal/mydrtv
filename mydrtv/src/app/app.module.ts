@@ -17,7 +17,7 @@ import {StoreModule} from '@ngrx/store';
 import {filmsReducer} from './films-redux/state-management/films.reducer';
 import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 
 @NgModule({
@@ -38,7 +38,8 @@ import { LoginComponent } from './login/login.component';
     VgOverlayPlayModule,
     VgBufferingModule,
     HttpClientModule,
-    StoreModule.forRoot({films: filmsReducer})
+    StoreModule.forRoot({films: filmsReducer}),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
