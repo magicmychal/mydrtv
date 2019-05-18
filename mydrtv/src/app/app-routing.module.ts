@@ -4,6 +4,7 @@ import {PlayerComponent} from './player/player.component';
 import {FilmComponent} from './film/film.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
   {
@@ -28,6 +29,10 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent
+  },
+  {
+    path: 'profile',
+    component: ProfileComponent
   }
 ]
 
