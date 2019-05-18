@@ -1,14 +1,12 @@
+$lightWhite: #dedede;
 
-select, option {
-    width: 30%;
-    height: 35px;
+label {
+    margin-top: 30px!important;
 }
 
-button {
-    display: block;
-    width: 20%;
-    padding: 10px;
-    position: absolute;
-    right: 48px;
-    bottom: 60px;
+select, option {
+    width: 40%;
+    height: 35px;
+    background-color: transparent!important;
+    color: $lightWhite!important;
 }
