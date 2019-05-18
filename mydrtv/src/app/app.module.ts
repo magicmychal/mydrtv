@@ -19,6 +19,7 @@ import { HomeComponent } from './home/home.component';
 import { MovieCarouselComponent } from './movie-carousel/movie-carousel.component';
 import { SignupComponent } from './signup/signup.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { MoviesCardComponent } from './movies-card/movies-card.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     FilmComponent,
     HomeComponent,
     MovieCarouselComponent,
-    SignupComponent
+    SignupComponent,
+    MoviesCardComponent
   ],
   imports: [
     BrowserModule,
