@@ -60,28 +60,31 @@ exports.login = (req, res) => {
          */
         User.findOne(
             // what to find
-            { Email: req.body.email},
+            {Email: req.body.email},
             // what to return
             'Name Email Password',
             // what to execute?
             function (err, user) {
-                if (err) return handleError(err);
-                console.log(user);
+                if (err) {
+                    res.status(403).send({
+                        errorMessage: 'Error fetching users' + err
+                    });
+                }
             })
             .then(user => {
-                if(!user) {
+                if (!user) {
                     return res.status(404).send({
                         message: "User not found"
                     });
                 }
-                console.log('user is ' + user.Email + 'compared to ' + req.body.email + ' and password is ' + user.Password + ' compared to ' + req.body.password);
-
                 //authenticate user and create token
-                if(user.Email === req.body.email && user.Password === req.body.password) {
-                    let token = jwt.sign(email, JWT_Secret);
+                if (user.Email === req.body.email && user.Password === req.body.password) {
+                    const tokenContent = {email: user.Email, password: user.Password, id: user._id};
+                    let token = jwt.sign(tokenContent, JWT_Secret);
                     res.status(200).send({
-                       signed_user: email,
-                       token: token
+                        id: user._id,
+                        signed_user: email,
+                        token: token
                     });
                 } else {
                     res.status(403).send({
@@ -89,19 +92,6 @@ exports.login = (req, res) => {
                     })
                 }
             });
-
-        // //authenticate by creating a token
-        // if (testUser.email === req.body.email && testUser.password === req.body.password) {
-        //     let token = jwt.sign(user, JWT_Secret);
-        //     res.status(200).send({
-        //         signed_user: user,
-        //         token: token
-        //     });
-        // } else {
-        //     res.status(403).send({
-        //         errorMessage: 'Authorisation required!'
-        //     });
-        // }
     } else {
         res.status(403).send({
             errorMessage: 'Please provide email and password'

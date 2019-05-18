@@ -19,7 +19,7 @@ export class AuthService {
   static logout() {
     localStorage.removeItem('auth_token');
   }
-  login(email: string, password: string){
+  login(email: string, password: string) {
     console.log('{email: ' + email + ', password:' + password + '}');
     this.http.post(this.endpoint, {email: email, password: password})
       .subscribe((resp: any) => {
@@ -27,12 +27,12 @@ export class AuthService {
         localStorage.setItem('auth_token', resp.token);
       });
   }
-  loginForm(user){
+  loginForm(user) {
     //console.log('{email: ' + user.email + ', password:' + user.password + '}');
-     this.http.post(this.endpoint, {email: user.email, password: user.password})
+     this.http.post(this.endpoint, user)
       .subscribe((resp: any) => {
-        this.router.navigate(['/']);
         localStorage.setItem('auth_token', resp.token);
+        this.router.navigate(['/']);
       });
   }
 
