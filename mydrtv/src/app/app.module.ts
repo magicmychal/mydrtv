@@ -17,6 +17,8 @@ import {StoreModule} from '@ngrx/store';
 import {filmsReducer} from './films-redux/state-management/films.reducer';
 import { HomeComponent } from './home/home.component';
 import { MovieCarouselComponent } from './movie-carousel/movie-carousel.component';
+import { SignupComponent } from './signup/signup.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { MovieCarouselComponent } from './movie-carousel/movie-carousel.componen
     PlayerComponent,
     FilmComponent,
     HomeComponent,
-    MovieCarouselComponent
+    MovieCarouselComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +37,8 @@ import { MovieCarouselComponent } from './movie-carousel/movie-carousel.componen
     VgOverlayPlayModule,
     VgBufferingModule,
     HttpClientModule,
-    StoreModule.forRoot({films: filmsReducer})
+    StoreModule.forRoot({films: filmsReducer}),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

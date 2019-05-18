@@ -3,9 +3,14 @@ import { Routes, RouterModule } from '@angular/router';
 import {PlayerComponent} from './player/player.component';
 import {FilmComponent} from './film/film.component';
 import { HomeComponent } from './home/home.component';
+import { SignupComponent } from './signup/signup.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: 'app', pathMatch: 'full'},
+  {
+    path: '',
+    redirectTo: 'app',
+    pathMatch: 'full'
+  },
 
   {
     path: 'film/:id',
@@ -19,9 +24,13 @@ const routes: Routes = [
   {
     path: 'home',
     component: HomeComponent
+  },
+  {
+    path: 'signup',
+    component: SignupComponent
   }
+]
 
-];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

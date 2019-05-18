@@ -5,7 +5,7 @@ exports.create = (req, res) => {
     // Validate request
     if(!req.body.name) {
         return res.status(400).send({
-            message: "Username cannot be empty"
+            message: "Name cannot be empty"
         });
     }
 

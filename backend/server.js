@@ -13,7 +13,6 @@ app.use(function(req, res, next) {
     next();
 });
 
-
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
 
