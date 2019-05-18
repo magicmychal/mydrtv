@@ -15,12 +15,16 @@ import { FilmComponent } from './film/film.component';
 import {HttpClientModule} from '@angular/common/http';
 import {StoreModule} from '@ngrx/store';
 import {filmsReducer} from './films-redux/state-management/films.reducer';
+import { HomeComponent } from './home/home.component';
+import { MovieCarouselComponent } from './movie-carousel/movie-carousel.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayerComponent,
-    FilmComponent
+    FilmComponent,
+    HomeComponent,
+    MovieCarouselComponent
   ],
   imports: [
     BrowserModule,
