@@ -1,28 +1,19 @@
 /* You can add global styles to this file, and also import other style files */
 
-/*
-Colors
-*/
+/* Colors */
 $blueGray: #263238;
 $lightWhite: #dedede;
 $main: #32b859;
-
-body{
-  margin: 0 !important;
-  background-color: $blueGray !important;
-  color: $lightWhite !important;
-}
 
 * {
   font-size: 16px;
   font-family: 'Montserrat'!important;
 }
 
-h2 {
-  text-align: center;
-  text-decoration: underline;
-  text-decoration-color: $main;
-
+body {
+  margin: 0 !important;
+  background-color: $blueGray !important;
+  color: $lightWhite !important;
 }
 
 form {
@@ -40,14 +31,14 @@ input {
   margin-top: 40px!important;
 }
 
-.invalid-feedback {
-  color: red;
-  position: absolute;
-}
-
 .invalid-feedback div {
   font-size: 12px;
   float: right;
+}
+
+.invalid-feedback {
+  color: red;
+  position: absolute;
 }
 
 .btn-primary {
