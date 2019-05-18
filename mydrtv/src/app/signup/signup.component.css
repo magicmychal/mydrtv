@@ -1,0 +1,13 @@
+select, option {
+  width: 30%;
+  height: 35px; }
+
+button {
+  display: block;
+  width: 20%;
+  padding: 10px;
+  position: absolute;
+  right: 48px;
+  bottom: 60px; }
+
+/*# sourceMappingURL=signup.component.css.map */

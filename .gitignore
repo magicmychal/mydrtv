@@ -31,7 +31,7 @@ yarn-error.log
 # rollup-test output
 /modules/rollup-test/dist/
 
-# User specific bazel settings
+# Users specific bazel settings
 .bazelrc.user
 
 mydrtv/package-lock.json

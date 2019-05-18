@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,mBAAmB;EACf,YAAY,EAAE,IAAI;;AAEtB,WAAY;EACR,MAAM,EAAE,GAAG;EACX,MAAM,EAAE,cAAc;EACtB,KAAK,EAAE,IAAI;EACX,KAAK,EAAE,KAAK;;AAGd,iBAAkB;EAChB,MAAM,EAAE,cAAc;;AAGxB,eAAgB;EACd,KAAK,EAAE,IAAI;EACX,MAAM,EAAE,IAAI;;AAGd,QAAS;EACP,OAAO,EAAE,IAAI;EACb,UAAU,EAAE,MAAM",
+"sources": ["movie-carousel.component.scss"],
+"names": [],
+"file": "movie-carousel.component.css"
+}
