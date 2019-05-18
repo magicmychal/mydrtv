@@ -1,8 +1,8 @@
 <div class="gallery-wrapper">
 <div *ngFor="let f of films" class="gallery">
-  <a id="{{f._id}}" href="">
+  <a id="{{f._id}}" href="/film/{{f._id}}">
     <img src="{{f.Poster}}" 
-    alt="Panda" width="600" height="400">
+    alt="film-poster">
   </a>
 </div>
 </div>
