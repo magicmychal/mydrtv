@@ -56,3 +56,8 @@ input {
 .btn-primary:hover {
   background-color: $main!important;
 }
+
+input:focus, select:focus, button:focus, button:active {
+  box-shadow: none !important;
+  border:1px solid $main!important;
+}
