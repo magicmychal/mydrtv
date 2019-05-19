@@ -1,5 +1,5 @@
 export class Film {
-  _id: string; // User does not fill out
+  _id: string; // Users does not fill out
   Title: string;
   Year: number;
   Rated: string;

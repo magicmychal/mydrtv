@@ -1,3 +1,4 @@
+
 module.exports = (app) => {
     //const useers = require('../controllers/users.controller.js');
     const users = require('../controllers/users.controller');
@@ -9,7 +10,7 @@ module.exports = (app) => {
     app.get('/users', users.findAll);
 
     // Retrieve a single user with usersId
-    app.get('/users', users.findOne);
+    //app.get('/users/:usersId', users.findOne);
 
     // Update a user with usersId
     app.put('/users/:usersId', users.update);
@@ -17,4 +18,6 @@ module.exports = (app) => {
     // Delete a user with usersId
     app.delete('/users/:usersId', users.delete);
 
+    // Authenticate user
+    app.post('/users/login', users.login)
 };

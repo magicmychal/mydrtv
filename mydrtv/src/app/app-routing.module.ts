@@ -4,6 +4,8 @@ import {PlayerComponent} from './player/player.component';
 import {FilmComponent} from './film/film.component';
 import { HomeComponent } from './home/home.component';
 import { SignupComponent } from './signup/signup.component';
+import {LoginComponent} from './login/login.component';
+import {AuthGuardService} from './services/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -19,7 +21,8 @@ const routes: Routes = [
   },
   {
     path: 'player/:id',
-    component: PlayerComponent
+    component: PlayerComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'home',
@@ -28,6 +31,10 @@ const routes: Routes = [
   {
     path: 'signup',
     component: SignupComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   }
 ]
 
