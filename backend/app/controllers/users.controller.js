@@ -12,7 +12,6 @@ exports.create = (req, res) => {
     // Create a user
     const users = new User({
         Name: req.body.name,
-        LastName: req.body.lastname,
         Email: req.body.email,
         Password: req.body.password,
         Gender: req.body.gender,
@@ -76,7 +75,6 @@ exports.update = (req, res) => {
     // Find user and update it with the request body
     User.findByIdAndUpdate(req.params.usersId, {
         Name: req.body.name,
-        LastName: req.body.lastname,
         Email: req.body.email,
         Password: req.body.password,
         Gender: req.body.gender,

@@ -6,14 +6,6 @@
           <div *ngIf="f.name.errors.required">First Name is required</div>
         </div>
     </label>
-  
-    <label>
-      <p>Last Name:</p>
-      <input type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
-        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-          <div *ngIf="f.lastName.errors.required">Last Name is required</div>
-        </div>
-    </label>
 
     <label>
       <p>E-mail:</p>
