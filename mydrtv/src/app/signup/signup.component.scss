@@ -9,13 +9,56 @@ h2 {
   text-decoration-color: $main;
 }
 
+.btn-primary {
+  display: block;
+  width: 30%;
+  padding: 10px;
+  position: absolute;
+  right: 0;
+  bottom: -90px;
+  background-color: transparent!important;
+  border-color: $main!important;
+  color: $lightWhite!important;
+}
+
+.btn-primary:hover {
+  background-color: $main!important;
+}
+
 label {
     margin-top: 38px!important;
 }
 
 select, option {
-    width: 40%;
+    width: 30%;
     height: 35px;
     background-color: transparent!important;
     color: $lightWhite!important;
+}
+
+.gender div {
+  position: absolute;
+  left: 0!important;
+}
+
+.checkbox {
+  position: absolute;
+  bottom: -5px;
+  right: 0;
+  font-size: 10.5px;
+  text-decoration: underline;
+  color: #6e757c;
+}
+
+.checkbox input {
+  display: inline-block;
+  width: 30px;
+  height: 20px;
+  zoom: 0.7;
+}
+
+input[type=checkbox] {
+  padding: 12px;
+  margin-right: 8px;
+  bottom: -6px;
 }

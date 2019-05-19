@@ -41,22 +41,6 @@ input {
   position: absolute;
 }
 
-.btn-primary {
-  display: block;
-  width: 30%;
-  padding: 10px;
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  background-color: transparent!important;
-  border-color: $main!important;
-  color: $lightWhite!important;
-}
-
-.btn-primary:hover {
-  background-color: $main!important;
-}
-
 input:focus, select:focus, button:focus, button:active {
   box-shadow: none !important;
   border:1px solid $main!important;
