@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {GetMoviesService} from "../services/get-movies.service";
+import {FilmRestService} from "../services/film-rest.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Pipe, PipeTransform} from '@angular/core';
 
@@ -14,7 +14,7 @@ export class MovieCarouselComponent implements OnInit {
   notFound: string;
 
   constructor(
-    public rest: GetMoviesService,
+    public rest: FilmRestService,
     private route: ActivatedRoute,
     private router: Router
   ) {
