@@ -15,11 +15,16 @@ import { FilmComponent } from './film/film.component';
 import {HttpClientModule} from '@angular/common/http';
 import {StoreModule} from '@ngrx/store';
 import {filmsReducer} from './films-redux/state-management/films.reducer';
+
 import { HomeComponent } from './home/home.component';
 import { MovieCarouselComponent } from './movie-carousel/movie-carousel.component';
 import { SignupComponent } from './signup/signup.component';
-import { ReactiveFormsModule } from '@angular/forms';
+
+import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { LoginComponent } from './login/login.component';
+import { MoviesCardComponent } from './movies-card/movies-card.component';
 
 @NgModule({
   declarations: [
@@ -29,10 +34,14 @@ import { ProfileComponent } from './profile/profile.component';
     HomeComponent,
     MovieCarouselComponent,
     SignupComponent,
-    ProfileComponent
+    NavbarComponent,
+    ProfileComponent,
+    LoginComponent,
+    MoviesCardComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     AppRoutingModule,
     VgCoreModule,
     VgControlsModule,

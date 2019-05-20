@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { GetMoviesService } from './get-movies.service';
+import { AuthGuardService } from './auth-guard.service';
 
-describe('FilmRestService', () => {
+describe('AuthGuardService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: GetMoviesService = TestBed.get(GetMoviesService);
+    const service: AuthGuardService = TestBed.get(AuthGuardService);
     expect(service).toBeTruthy();
   });
 });

@@ -22,19 +22,8 @@ export class FilmRestService {
     let body = res;
     return body || {};
   }
-
-  getProducts(): Observable<any> {
-    return this.http.get(endpoint + 'products').pipe(
-      map(this.extractData));
-  }
-
   getMovies(): Observable<any> {
     return this.http.get(endpoint).pipe(
-      map(this.extractData));
-  }
-
-  getProduct(id): Observable<any> {
-    return this.http.get(endpoint + 'products/' + id).pipe(
       map(this.extractData));
   }
 
