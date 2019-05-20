@@ -26,6 +26,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { MoviesCardComponent } from './movies-card/movies-card.component';
 import { SearchComponent } from './search/search.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome'; //font awesome icons
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { SearchComponent } from './search/search.component';
     VgBufferingModule,
     HttpClientModule,
     StoreModule.forRoot({films: filmsReducer}),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFontAwesomeModule
   ],
   providers: [],
   bootstrap: [AppComponent]
