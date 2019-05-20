@@ -58,6 +58,8 @@
           <button [disabled]="loading" class="btn btn-primary" *ngIf="showSaveButton">Save</button>
       
       </form>
+
+      <div class="divDeleteUser">Do you wish to close down your account?  <a id="deleteButton" (click)="onDeleteUser()">Delete</a></div>
     </div>
 
   </div>

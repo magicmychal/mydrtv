@@ -28,7 +28,7 @@ export class ProfileComponent implements OnInit {
               private router: Router) {  }
 
   ngOnInit() {
-    this.userId = "5cdebf2d5c192b6a0a18602d";
+    this.userId = "5cdec49f5c192b6a0a186030";
     console.log('Userid is: ' + this.userId);
 
     // Create form with FormBuilder
@@ -100,6 +100,18 @@ export class ProfileComponent implements OnInit {
     })
 
     //console.log(this.profileForm.value);
+
+  }
+
+  // Delete current user
+  onDeleteUser(){
+    console.log('User delete clicked');
+
+    this.rest.deleteUser(this.userId).subscribe({
+      next: x => console.log(x),
+      error: err => this.userNotFound(),
+      complete: () => console.log('User deleted')
+    })
 
   }
 
