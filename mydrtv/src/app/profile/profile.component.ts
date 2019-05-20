@@ -21,7 +21,6 @@ export class ProfileComponent implements OnInit {
   showEditButton: boolean = true;
   showSaveButton: boolean = false;
   submitted = false;
-  firstname: string = "YYY";
 
   constructor(public rest: UsersService,
               public authService: AuthService,
@@ -108,7 +107,6 @@ export class ProfileComponent implements OnInit {
 
   // Delete current user
   onDeleteUser(){
-    console.log('User delete clicked');
 
     this.rest.deleteUser(this.userId).subscribe({
       next: x => console.log(x),
