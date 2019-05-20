@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {VgAPI} from 'videogular2/core';
+import {VgAPI, VgControlsHidden} from 'videogular2/core';
+
 
 @Component({
   selector: 'app-welcome',
@@ -11,7 +12,7 @@ export class WelcomeComponent implements OnInit {
   api:VgAPI;
 
 
-  constructor() { }
+  constructor(private controlsHidden: VgControlsHidden) { }
 
   ngOnInit() {
   }
@@ -20,5 +21,6 @@ export class WelcomeComponent implements OnInit {
     this.api = api;
     this.api.play();
   }
+
 
 }

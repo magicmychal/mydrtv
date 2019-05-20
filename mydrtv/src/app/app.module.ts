@@ -1,5 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { ParallaxScrollModule } from 'ng2-parallaxscroll';
+
 
 // Video player import starts
 import {VgCoreModule} from 'videogular2/core';
@@ -51,7 +53,8 @@ import { WelcomeComponent } from './welcome/welcome.component';
     VgBufferingModule,
     HttpClientModule,
     StoreModule.forRoot({films: filmsReducer}),
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ParallaxScrollModule
   ],
   providers: [],
   bootstrap: [AppComponent]
