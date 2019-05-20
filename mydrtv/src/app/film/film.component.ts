@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {FilmRestService} from "../services/film-rest.service";
-import {ActivatedRoute, Router} from "@angular/router";
-import {log} from "util";
+import {FilmRestService} from '../services/film-rest.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-details',
@@ -34,6 +33,6 @@ export class FilmComponent implements OnInit {
     this.notFound = 'Movie not found. You will be redirected to the main page in a moment...';
     setTimeout(() => {
       this.router.navigate(['/']);
-    }, 3000);  //3s
+    }, 3000);  // 3s
   }
 }
