@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {GetMoviesService} from "../services/get-movies.service";
+import {FilmRestService} from "../services/film-rest.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {Pipe, PipeTransform} from '@angular/core';
 
 @Component({
   selector: 'app-movie-carousel',
@@ -8,14 +9,17 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./movie-carousel.component.scss']
 })
 export class MovieCarouselComponent implements OnInit {
+  private genres;
   films: any;
   notFound: string;
 
   constructor(
-    public rest: GetMoviesService,
+    public rest: FilmRestService,
     private route: ActivatedRoute,
     private router: Router
-  ) { }
+  ) {
+    this.genres = ["Comedy", "Thriller", "Crime", "Drama", "War", "Biography", "History", "Romance", "Family"];
+   }
 
   ngOnInit() {
     this.rest.getMovies().subscribe({
