@@ -14,13 +14,13 @@
         <!-- Logged in -->
         <li class="dropdown order-1" *ngIf="this.authService.isLoggedIn()">
           <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Name <span class="caret"></span></button>
-          <ul class="dropdown-menu dropdown-menu-right mt-2">
+          <ul class="dropdown-menu dropdown-menu-right mt-2" id="name">
             <li class="px-3">
               <div class="form-group">
                   <a class="nav-link" routerLink="profile" routerLinkActive="active" *ngIf="this.authService.isLoggedIn()">Profile</a>
               </div>
               <div class="form-group">
-                  <a class="nav-link" (click)="logout()" href="#" >Logout</a>
+                  <a class="nav-link" (click)="logout()" href="#" >Log out</a>
               </div>
             </li>
           </ul>
@@ -33,31 +33,31 @@
         <li class="dropdown order-1" *ngIf="!this.authService.isLoggedIn()">
           <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Login <span class="caret"></span></button>
           <ul class="dropdown-menu dropdown-menu-right mt-2">
-            <li class="px-3 py-2">
+            <li class="px-3 py-3">
               <div class="form-group">
-                <label for="email">Email</label>
-                <input id="email" type="email" placeholder="Email" [(ngModel)]="email" class="form-control form-control-sm" required="">
+                <input id="email" type="email" placeholder="E-mail" [(ngModel)]="email" class="form-control form-control-sm" required="">
               </div>
               
               <div class="form-group">
-                <label for="password">Password</label>
-                <input id="password" type="password" placeholder="password" [(ngModel)]="password" class="form-control form-control-sm" required=""/>
+                <input id="password" type="password" placeholder="Password" [(ngModel)]="password" class="form-control form-control-sm" required=""/>
               </div>
 
               <div class="form-group">
-                <button type="submit" class="btn btn-primary btn-block" (click)="Login()">Login</button>
+                <button type="submit" id="loginBtn" class="btn btn-primary btn-block" (click)="Login()">Login</button>
               </div>
             </li>
           </ul>
         </li>
       </ul>
       <ul class="nav navbar-nav">
-          <li class="nav-item"><a class="nav-link" routerLink="signup" routerLinkActive="active" *ngIf="!this.authService.isLoggedIn()">Not a user?</a></li>
+          <li class="nav-item"><a class="nav-link" id="notUser" routerLink="signup" routerLinkActive="active" *ngIf="!this.authService.isLoggedIn()">Not a user?</a></li>
         </ul>
     </div>
   </div>
 </nav>
 
+
+<!--
 <div id="modalPassword" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
      aria-hidden="true">
   <div class="modal-dialog">
@@ -76,3 +76,4 @@
     </div>
   </div>
 </div>
+-->
