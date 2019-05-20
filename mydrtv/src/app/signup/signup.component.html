@@ -6,11 +6,6 @@
           <div *ngIf="f.name.errors.required">First Name is required</div>
         </div>
 
-  
-      <input placeholder="Last Name" type="text" formControlName="lastName" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.lastName.errors }">
-        <div *ngIf="submitted && f.lastName.errors" class="invalid-feedback">
-          <div *ngIf="f.lastName.errors.required">Last Name is required</div>
-        </div>
 
         <input placeholder="E-mail" type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
         <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
@@ -26,17 +21,26 @@
          </div>
 
 
-    <label>
-        Gender:
-    </label>
-        <select formControlName="gender" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
-          <option value="M" selected>Male</option>
-          <option value="F">Female</option>
+         <label>
+            Gender:
+          </label>
+            <select formControlName="gender" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+              <option id="choose" value="" disabled>Choose...</option>
+              <option value="M">Male</option>
+              <option value="F">Female</option>
+            </select>
+    
+            <div *ngIf="submitted && f.gender.errors" class="invalid-feedback gender">
+                <div *ngIf="f.password.errors.required">Gender is required</div>
+              </div>
 
-          <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
-            <div *ngIf="f.gender.errors.required">Gender is required</div>
-          </div>
-        </select>
+              <label class="checkbox">
+                  <input type="checkbox" formControlName="checkbox" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.checkbox.errors }">I agree to the Terms of Service and Privacy Policy.
+
+                  <div *ngIf="submitted && f.checkbox.errors" class="invalid-feedback">
+                      <div *ngIf="f.checkbox.errors.pattern">You cannot sign up if you do not agree</div>
+                    </div>
+                </label>
 
     <div class="form-group">
       <button [disabled]="loading" class="btn btn-primary">Sign up</button>

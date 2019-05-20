@@ -12,6 +12,8 @@ import { UsersService } from '../services/users.service';
   styleUrls: ['./signup.component.scss']
 })
 
+
+
 export class SignupComponent implements OnInit {
 
   signupForm: FormGroup;
@@ -31,10 +33,10 @@ export class SignupComponent implements OnInit {
   ngOnInit() {
     this.signupForm = this.fb.group({
         name: ['', Validators.required],
-        lastName: ['',  Validators.required],
         email: ['', [Validators.required, Validators.email]],
         password: ['', [Validators.required, Validators.minLength(6)]],
-        gender: ['M']
+        gender: ['', Validators.required],
+        checkbox: [false, Validators.pattern('true')]
       })
   }
 
@@ -45,9 +47,9 @@ export class SignupComponent implements OnInit {
     this.submitted = true;
 
     // stop here if form is invalid
-    if (this.signupForm.invalid) {
 
-        return;
+    if (this.signupForm.invalid){
+      return
     }
 
     this.rest.addUser(this.signupForm.value).subscribe({
