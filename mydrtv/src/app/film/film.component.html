@@ -13,13 +13,7 @@
   <div class="row">
     <div class="col-5">
       <div routerLink="player">
-          <div class="itemsContainer">
-              <div class="image">
-                  <img src="{{film.Poster}}" alt="Video player" class="img-fluid">
-              </div>
-              <div class="play"></div>
-          </div>
-        
+        <img src="{{film.Poster}}" routerLink="/film/player/{{film._id}}" alt="Video player" class="img-fluid">
       </div>
     </div>
     

@@ -6,11 +6,12 @@ import {HomeComponent} from './home/home.component';
 import {SignupComponent} from './signup/signup.component';
 import {LoginComponent} from './login/login.component';
 import {AuthGuardService} from './services/auth-guard.service';
+import {WelcomeComponent} from "./welcome/welcome.component";
 
 const routes: Routes = [
     {
         path: '',
-        redirectTo: '/home',
+        redirectTo: '/welcome',
         pathMatch: 'full'
     },
     {
@@ -20,11 +21,6 @@ const routes: Routes = [
             {path: ':id', component: FilmComponent},
             {path: 'player/:id', component: PlayerComponent}
         ]
-    },
-    {
-        path: 'player/:id',
-        component: PlayerComponent,
-        canActivate: [AuthGuardService]
     },
     {
         path: 'home',
@@ -40,10 +36,14 @@ const routes: Routes = [
         component: LoginComponent
     },
     {
+        path: 'welcome',
+        component: WelcomeComponent
+    },
+    {
         path: '**',
         redirectTo: 'app'
     }
-]
+];
 
 
 @NgModule({
