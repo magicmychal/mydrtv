@@ -11,7 +11,6 @@ module.exports = (app) => {
 
     // Retrieve a single user with usersId
     app.get('/users/:usersId', users.findOne);
-    //app.get('/users/:usersId', users.findOne);
 
     // Update a user with usersId
     app.put('/users/:usersId', users.update);

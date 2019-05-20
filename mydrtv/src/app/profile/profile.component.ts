@@ -40,6 +40,7 @@ export class ProfileComponent implements OnInit {
     });
 
     // Get user data from the database
+    // This data is commented out in the database now. Need another way.
     this.rest.getUser(this.userId).subscribe({
       next: x => this.selectedUser = x,
       error: err => this.userNotFound(),
