@@ -1,5 +1,5 @@
 <form [formGroup]="signupForm" (ngSubmit)="onSubmit()"> 
-    <h2>Wanna join?</h2>
+    <h2>Sign up</h2>
 
       <input placeholder="First Name" type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
         <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
