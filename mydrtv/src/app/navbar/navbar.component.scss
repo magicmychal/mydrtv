@@ -1,0 +1,44 @@
+/* Colors */
+$blueGray: #263238;
+$lightWhite: #dedede;
+$main: #32b859;
+
+.navbar {
+    background-color: rgba(0,0,0,0.1);
+    height: 80px;
+}
+
+.navbar-brand {
+    color: $main;
+    font-weight: bold;
+    margin-right: 80px;
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+}
+
+.navbar-brand:hover {
+    color: $main;
+    -webkit-transform: translateX(-8px);
+    transform: translateX(-8px);
+}
+
+.navbar-brand:visited {
+    color: $main;
+}
+
+.btn {
+    background-color: transparent!important;
+    border-color: $main!important;
+    color: $lightWhite!important;
+  }
+  
+  .btn:hover {
+    background-color: $main!important;
+  }
