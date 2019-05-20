@@ -11,7 +11,7 @@ $main: #32b859;
 .navbar-brand {
     color: $main;
     font-weight: bold;
-    margin-right: 80px;
+    margin-right: 50px;
     display: inline-block;
     vertical-align: middle;
     -webkit-transform: perspective(1px) translateZ(0);
@@ -41,4 +41,41 @@ $main: #32b859;
   
   .btn:hover {
     background-color: $main!important;
+  }
+
+  #notUser {
+      font-size: 12px;
+      margin-left: 10px;
+  }
+
+  .dropdown-menu {
+    width: 300px;
+    background-color: rgba(255,255,255,0.95)
+  }
+
+  .dropdown-menu li div a {
+    color: $blueGray;
+  }
+
+  .dropdown-menu li div a:hover {
+    color: $main;
+  }
+
+  .dropdown-menu li div a:last-child {
+    margin-bottom: -15px;
+  }
+
+  input {
+    margin-top: 0px!important;
+    color: $blueGray!important;
+  }
+
+  #loginBtn {
+      background-color: $main!important;
+      color: white;
+      margin-bottom: -15px;
+  }
+
+  #name {
+      width: 100px!important;
   }
