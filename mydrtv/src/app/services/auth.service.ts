@@ -30,7 +30,7 @@ export class AuthService {
     console.log('{email: ' + email + ', password:' + password + '}');
     this.http.post(this.endpoint, {email: email, password: password})
       .subscribe((resp: any) => {
-        this.router.navigate(['/']);
+        this.router.navigate(['/home']);
         localStorage.setItem('auth_token', resp.token);
       });
   }
@@ -39,7 +39,7 @@ export class AuthService {
      this.http.post(this.endpoint, user)
       .subscribe((resp: any) => {
         localStorage.setItem('auth_token', resp.token);
-        this.router.navigate(['/']);
+        this.router.navigate(['/home']);
       });
   }
 

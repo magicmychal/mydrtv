@@ -11,7 +11,7 @@ import {WelcomeComponent} from "./welcome/welcome.component";
 const routes: Routes = [
     {
         path: '',
-        redirectTo: '/home',
+        redirectTo: '/welcome',
         pathMatch: 'full'
     },
     {

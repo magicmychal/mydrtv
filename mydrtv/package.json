@@ -23,7 +23,6 @@
     "bootstrap": "^4.3.1",
     "core-js": "^2.5.4",
     "jquery": "^3.4.1",
-    "ng2-parallaxscroll": "^2.1.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
     "videogular2": "^6.4.0",
