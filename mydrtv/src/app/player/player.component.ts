@@ -1,7 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {FilmRestService} from '../services/film-rest.service';
 import {ActivatedRoute, Router} from '@angular/router';
-
+import {VgAPI} from 'videogular2/core';
+import {Globals} from '../globals';
 
 @Component({
     selector: 'app-player',
@@ -9,19 +10,26 @@ import {ActivatedRoute, Router} from '@angular/router';
     styleUrls: ['./player.component.scss']
 })
 export class PlayerComponent implements OnInit {
+    // filmId used to determine which movie to play
     public filmId: string;
-    films: any = [];
+    // it's the object that is returned in an observable
     film: any;
-    notFound: string;
+    // it's the string to display when the movie is not found
+    notFound: string
+    // videoApi based on the Videgular2 documentation
+    videoApi:VgAPI;
 
     constructor(
         public rest: FilmRestService,
         private route: ActivatedRoute,
-        private router: Router
+        private router: Router,
+        private globals: Globals
     ) {
+        this.globals.hideNavBar = true;
     }
 
     ngOnInit() {
+
         // Get the ID of the movie from the parameter
         this.filmId = this.route.snapshot.params.id;
         this.rest.getMovie(this.filmId).subscribe({
@@ -39,5 +47,10 @@ export class PlayerComponent implements OnInit {
         setTimeout(() => {
             this.router.navigate(['/']);
         }, 3000);  //3s
+    }
+
+    onPlayerReady(videoApi:VgAPI) {
+        this.videoApi = videoApi;
+        this.videoApi.play();
     }
 }

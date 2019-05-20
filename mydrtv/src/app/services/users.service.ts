@@ -25,6 +25,11 @@ export class UsersService {
     return body || {};
   }
 
+  getUser(id): Observable<any> {
+    return this.http.get(endpoint + id).pipe(
+      map(this.extractData));
+  }
+
 
   addUser(user: User): Observable<User> {
     console.log(user);
