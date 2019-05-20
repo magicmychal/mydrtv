@@ -13,7 +13,12 @@
   <div class="row">
     <div class="col-5">
       <div routerLink="player">
-        <img src="{{film.Poster}}" routerLink="/film/player/{{film._id}}" alt="Video player" class="img-fluid">
+          <div class="itemsContainer">
+          <div class="image">
+              <img src="{{film.Poster}}" routerLink="/film/player/{{film._id}}" alt="Video player" class="img-fluid">
+          </div>
+          <div class="play"></div>
+      </div>
       </div>
     </div>
     
@@ -39,7 +44,7 @@
       </div>
 
       <div routerLink="player">
-          <button type="button" class="btn">Play film</button>
+          <button routerLink="/film/player/{{film._id}}" type="button" class="btn">Play film</button>
         </div>
 
     </div>
