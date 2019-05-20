@@ -4,6 +4,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 
 import { User } from '../entities/users';
 import { UsersService } from '../services/users.service';
+import {AuthService} from '../services/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -23,12 +24,13 @@ export class ProfileComponent implements OnInit {
   firstname: string = "YYY";
 
   constructor(public rest: UsersService,
+              public authService: AuthService,
               private fb: FormBuilder,
               private route: ActivatedRoute,
               private router: Router) {  }
 
   ngOnInit() {
-    this.userId = "5cdec49f5c192b6a0a186030";
+    this.userId = "5ce05a7d1021e32944745578";
     console.log('Userid is: ' + this.userId);
 
     // Create form with FormBuilder
@@ -111,7 +113,7 @@ export class ProfileComponent implements OnInit {
     this.rest.deleteUser(this.userId).subscribe({
       next: x => console.log(x),
       error: err => this.userNotFound(),
-      complete: () => console.log('User deleted')
+      complete: () => this.authService.logout()
     })
 
   }
@@ -119,7 +121,9 @@ export class ProfileComponent implements OnInit {
   // if the user was not found in the database
   userNotFound() {
     this.notFound = 'User not found in database...';
-    console.log(this.notFound);
+    setTimeout(() => {
+      this.router.navigate(['/']);
+    }, 2000);  // 2s
   }
 
 }

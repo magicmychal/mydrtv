@@ -25,12 +25,6 @@ export class UsersService {
     return body || {};
   }
 
-  getUser(id): Observable<any> {
-    return this.http.get(endpoint + id).pipe(
-      map(this.extractData));
-  }
-
-
   addUser(user: User): Observable<User> {
     console.log(user);
     return this.http.post<User>(endpoint, JSON.stringify(user), httpOptions).pipe(

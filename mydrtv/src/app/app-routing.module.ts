@@ -38,7 +38,8 @@ const routes: Routes = [
     },
     {
       path: 'profile',
-      component: ProfileComponent
+      component: ProfileComponent,
+      canActivate: [AuthGuardService]
     },
     {
         path: 'welcome',
