@@ -24,8 +24,8 @@ export class NavbarComponent implements OnInit {
     ) { }
 
   ngOnInit() {
-    this.usersId = "5ce26c92cd42732a50118321";//this.route.snapshot.params.id;
-    console.log('film id is: ', this.usersId);
+    this.usersId = "5ce1b9264f2e1fa29e4ee216"; //this.route.snapshot.params.id;
+    console.log('user id is: ', this.usersId);
     this.rest.getUser(this.usersId).subscribe({
       next: x => this.user = x,
       error: err => this.userNotFound(),
@@ -36,7 +36,9 @@ export class NavbarComponent implements OnInit {
   Login() {
     console.log('You are logging in');
     this.authService.login(this.email, this.password);
+
   }
+  
   logout(){
     console.log('You are logging out');
     this.authService.logout();

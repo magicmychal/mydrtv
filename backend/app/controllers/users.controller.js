@@ -56,24 +56,19 @@ exports.login = (req, res) => {
         /*
         find one by email, return Name, Email, and Password
         execute function if there are any errors.
-         */
-            User.findById(req.params.usersId)
-                .then(users => {
-                    if(!users) {
-                        return res.status(404).send({
-                            message: "Users not found with id " + req.params.usersId
-                        });
-                    }
-                    res.send(users);
-                }).catch(err => {
-                if(err.kind === 'ObjectId') {
-                    return res.status(404).send({
-                        message: "Users not found with id " + req.params.usersId
+        */
+        User.findOne(
+            // what to find
+            {Email: req.body.email},
+            // what to return
+            'Name Email Password',
+            // what to execute?
+            function (err, user) {
+                if (err) {
+                    res.status(403).send({
+                        errorMessage: 'Error fetching users' + err
                     });
                 }
-                return res.status(500).send({
-                    message: "Error retrieving users with id " + req.params.usersId
-                });
             })
             .then(user => {
                 if (!user) {
@@ -102,6 +97,28 @@ exports.login = (req, res) => {
         });
     }
 };
+
+exports.findOne = (req, res) => {
+    User.findById(req.params.usersId)
+        .then(users => {
+            if(!users) {
+                return res.status(404).send({
+                    message: "User not found with id " + req.params.usersId
+                });
+            }
+            res.send(users);
+        }).catch(err => {
+        if(err.kind === 'usersId') {
+            return res.status(404).send({
+                message: "User not found with id " + req.params.usersId
+            });
+        }
+        return res.status(500).send({
+            message: "Error retrieving user with id " + req.params.usersId
+        });
+    });
+};
+
 
 // Update a user identified by the flmId in the request
 exports.update = (req, res) => {
