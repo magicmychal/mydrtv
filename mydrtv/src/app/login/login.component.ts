@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthService} from '../services/auth.service';
 import {ActivatedRoute, Router} from '@angular/router';
-import { Users } from '../entities/users';
+import { User } from '../entities/users';
 
 @Component({
   selector: 'app-login',
@@ -12,7 +12,7 @@ import { Users } from '../entities/users';
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;
-  selectedUser: Users;
+  selectedUser: User;
   notFound: string;
   submitted = false;
 

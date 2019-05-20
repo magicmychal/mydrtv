@@ -1,4 +1,4 @@
-.DS_STORE
+cd.DS_STORE
 
 /dist/
 /bazel-out
@@ -34,4 +34,7 @@ yarn-error.log
 # Users specific bazel settings
 .bazelrc.user
 
+mydrtv/package-lock.json
+package-lock.json
+mydrtv/package-lock.json
 mydrtv/package-lock.json
