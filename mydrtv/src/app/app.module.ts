@@ -25,6 +25,7 @@ import { ProfileComponent } from './profile/profile.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { MoviesCardComponent } from './movies-card/movies-card.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { MoviesCardComponent } from './movies-card/movies-card.component';
     NavbarComponent,
     ProfileComponent,
     LoginComponent,
-    MoviesCardComponent
+    MoviesCardComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
