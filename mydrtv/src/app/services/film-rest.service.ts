@@ -32,13 +32,7 @@ export class FilmRestService {
       map(this.extractData));
   }
 
-  addProduct(product): Observable<any> {
-    console.log(product);
-    return this.http.post<any>(endpoint + 'products', JSON.stringify(product), httpOptions).pipe(
-      tap((product) => console.log(`added product w/ id=${product.id}`)),
-      catchError(this.handleError<any>('addProduct'))
-    );
-  }
+
 
   updateProduct(id, product): Observable<any> {
     return this.http.put(endpoint + 'products/' + id, JSON.stringify(product), httpOptions).pipe(

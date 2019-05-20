@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService} from '../services/auth.service';
+import { Globals } from '../globals';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
+  providers: [ Globals ]
 })
 export class NavbarComponent implements OnInit {
   email = '';
   password = '';
-  constructor(private authService: AuthService) { }
+
+  constructor(
+      private authService: AuthService,
+      private globals: Globals) {}
 
   ngOnInit() {
   }
@@ -19,7 +23,7 @@ export class NavbarComponent implements OnInit {
     console.log('You are logging in');
     this.authService.login(this.email, this.password);
   }
-  logout(){
+  logout() {
     console.log('You are logging out');
     this.authService.logout();
   }
