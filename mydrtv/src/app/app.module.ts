@@ -24,7 +24,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { ProfileComponent } from './profile/profile.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
-
+import { MoviesCardComponent } from './movies-card/movies-card.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +36,8 @@ import { LoginComponent } from './login/login.component';
     SignupComponent,
     NavbarComponent,
     ProfileComponent,
-    LoginComponent
+    LoginComponent,
+    MoviesCardComponent
   ],
   imports: [
     BrowserModule,
