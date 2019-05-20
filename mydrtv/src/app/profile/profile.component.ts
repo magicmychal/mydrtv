@@ -20,6 +20,7 @@ export class ProfileComponent implements OnInit {
   showEditButton: boolean = true;
   showSaveButton: boolean = false;
   submitted = false;
+  firstname: string = "YYY";
 
   constructor(public rest: UsersService,
               private fb: FormBuilder,
@@ -30,31 +31,53 @@ export class ProfileComponent implements OnInit {
     this.userId = "5cdebf2d5c192b6a0a18602d";
     console.log('Userid is: ' + this.userId);
 
+    // Create form with FormBuilder
     this.profileForm = this.fb.group({
-      name: [{value: '', disabled: true}, Validators.required],
-      email: [{value: '', disabled: true}, [Validators.required, Validators.email]],
-      password: [{value: '', disabled: true}, [Validators.required, Validators.minLength(6)]],
-      gender: [{value: '', disabled: true}, Validators.required]
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      gender: ['', Validators.required]
     });
 
+    // Get user data from the database
     this.rest.getUser(this.userId).subscribe({
       next: x => this.selectedUser = x,
       error: err => this.userNotFound(),
-      complete: () => console.log(this.selectedUser)
+      complete: () => this.onUserRetrieved(this.selectedUser)
+    });
+
+    //console.log(this.profileForm.value);
+    this.profileForm.disable();
+
+    // Make sure we follow the value changes in the form
+    this.profileForm.valueChanges.subscribe(val => {
+      this.selectedUser = val;
+      //console.log(this.selectedUser);
     });
 
   }
 
-  // convenience getter for easy access to form fields
+  onUserRetrieved(user: any): void {
+
+    // Update the data on the form
+    this.profileForm.patchValue({
+        name: user.Name,
+        email: user.Email,
+        password: user.Password,
+        gender: user.Gender
+    });
+  }
+
+
+  // Convenience getter for easy access to form fields
   get f() { return this.profileForm.controls; }
 
+  // Enable editing the form
   onEdit(){
-    //console.log('Edit clicked');
     this.profileForm.enable();
     this.showEditButton = false;
     this.showSaveButton = true;
   }
-
 
   onSubmit() {
 
@@ -69,10 +92,11 @@ export class ProfileComponent implements OnInit {
     this.showEditButton = true;
     this.showSaveButton = false;
 
+    // Update user in the database
     this.rest.updateUser(this.userId, this.profileForm.value).subscribe({
       next: x => this.selectedUser = x,
       error: err => this.userNotFound(),
-      complete: () => console.log(this.selectedUser)
+      complete: () => console.log('User updated')
     })
 
     //console.log(this.profileForm.value);

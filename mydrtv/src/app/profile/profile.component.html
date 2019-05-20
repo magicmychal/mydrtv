@@ -15,7 +15,7 @@
         <label>
           Name:
           </label>
-          <input type="text" value="{{selectedUser.Name}}" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+          <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
             <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
               <div *ngIf="f.name.errors.required">Name is required</div>
             </div>      
@@ -23,7 +23,7 @@
         <label>
           E-mail:
         </label>
-            <input type="text" value="{{selectedUser.Email}}" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+            <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
             <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
               <div *ngIf="f.email.errors.required">E-mail is required</div>
               <div *ngIf="f.email.errors.email">E-mail must be a valid e-mail address</div>
@@ -33,7 +33,7 @@
         <label>
             Password:
         </label>
-            <input type="password" value="{{selectedUser.Password}}" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
               <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
                 <div *ngIf="f.password.errors.required">Password is required</div>
                 <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
@@ -43,7 +43,7 @@
         <label>
             Gender:
         </label>
-            <select formControlName="gender" value="{{selectedUser.Gender}}" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+            <select formControlName="gender" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
               <option value="M" selected>Male</option>
               <option value="F">Female</option>
             </select>
