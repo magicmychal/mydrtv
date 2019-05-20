@@ -57,18 +57,23 @@ exports.login = (req, res) => {
         find one by email, return Name, Email, and Password
         execute function if there are any errors.
          */
-        User.findOne(
-            // what to find
-            {Email: req.body.email},
-            // what to return
-            'Name Email Password',
-            // what to execute?
-            function (err, user) {
-                if (err) {
-                    res.status(403).send({
-                        errorMessage: 'Error fetching users' + err
+            User.findById(req.params.usersId)
+                .then(users => {
+                    if(!users) {
+                        return res.status(404).send({
+                            message: "Users not found with id " + req.params.usersId
+                        });
+                    }
+                    res.send(users);
+                }).catch(err => {
+                if(err.kind === 'ObjectId') {
+                    return res.status(404).send({
+                        message: "Users not found with id " + req.params.usersId
                     });
                 }
+                return res.status(500).send({
+                    message: "Error retrieving users with id " + req.params.usersId
+                });
             })
             .then(user => {
                 if (!user) {

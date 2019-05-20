@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService} from '../services/auth.service';
+import { UsersService } from "../services/users.service";
 
 @Component({
   selector: 'app-navbar',
@@ -10,9 +11,26 @@ import { AuthService} from '../services/auth.service';
 export class NavbarComponent implements OnInit {
   email = '';
   password = '';
-  constructor(private authService: AuthService) { }
+
+  public usersId: string;
+  user: any;
+  notFound: string;
+
+  constructor(
+    public rest: UsersService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private authService: AuthService
+    ) { }
 
   ngOnInit() {
+    this.usersId = "5ce26c92cd42732a50118321";//this.route.snapshot.params.id;
+    console.log('film id is: ', this.usersId);
+    this.rest.getUser(this.usersId).subscribe({
+      next: x => this.user = x,
+      error: err => this.userNotFound(),
+      complete: () => console.log('done')
+    });
   }
 
   Login() {
@@ -23,4 +41,11 @@ export class NavbarComponent implements OnInit {
     console.log('You are logging out');
     this.authService.logout();
   }
+
+userNotFound() {
+  this.notFound = 'User not found. You will be redirected to the main page in a moment...';
+  setTimeout(() => {
+    this.router.navigate(['/']);
+  }, 3000);  //3s
+}
 }
