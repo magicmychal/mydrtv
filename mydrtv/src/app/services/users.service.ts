@@ -39,6 +39,13 @@ export class UsersService {
       map(this.extractData));
   }
 
+  updateUser(id: string, user: User): Observable<any> {
+    return this.http.put(endpoint + id, JSON.stringify(user), httpOptions).pipe(
+      tap(_ => console.log(`updated user id=${id}`)),
+      catchError(this.handleError<any>('updateUser'))
+    );
+  }
+
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

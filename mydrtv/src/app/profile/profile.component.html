@@ -46,16 +46,16 @@
             <select formControlName="gender" value="{{selectedUser.Gender}}" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
               <option value="M" selected>Male</option>
               <option value="F">Female</option>
-      
-              <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
-                <div *ngIf="f.gender.errors.required">Gender is required</div>
-              </div>
             </select>
+
+            <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+              <div *ngIf="f.gender.errors.required">Gender is required</div>
+            </div>
       
 
-          <button [disabled]="loading" class="btn btn-primary">Edit</button>
+          <button type="button" [disabled]="loading" class="btn btn-primary" (click)="onEdit()" *ngIf="showEditButton">Edit</button>
 
-          <button [disabled]="loading" class="btn btn-primary">Save</button>
+          <button [disabled]="loading" class="btn btn-primary" *ngIf="showSaveButton">Save</button>
       
       </form>
     </div>
