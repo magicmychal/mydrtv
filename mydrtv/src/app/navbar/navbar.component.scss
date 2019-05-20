@@ -1,14 +1,4 @@
 /*SEARCH BAR STYLING*/
-/* border-box */
-.search-container *,
-.search-container *:after,
-.search-container *:before {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  -ms-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
 /* search bar focus */
 .search-container *:focus {
   background: #fbfbfb;
@@ -21,6 +11,8 @@
   display: table;
   position: relative;
   width: 31px;
+  padding-top: 5px;
+  cursor: pointer;
 }
 
 /* search icon button */
@@ -72,5 +64,7 @@
   padding-right: 10px;
   width: 200px;
 }
-
+.search-icon-btn{
+    color: rgba(255, 255, 255, 0.75);
+}
 /*END SEARCH BAR STYLING*/
