@@ -6,6 +6,7 @@ import {HomeComponent} from './home/home.component';
 import {SignupComponent} from './signup/signup.component';
 import {LoginComponent} from './login/login.component';
 import {AuthGuardService} from './services/auth-guard.service';
+import { SearchComponent } from './search/search.component';
 
 const routes: Routes = [
     {
@@ -42,7 +43,11 @@ const routes: Routes = [
     {
         path: '**',
         redirectTo: 'app'
-    }
+    },
+    {
+        path: 'search',
+        component: SearchComponent
+    },
 ]
 
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FilmRestService} from "../services/film-rest.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import {Pipe, PipeTransform} from '@angular/core';
 
 @Component({
   selector: 'app-movie-carousel',
