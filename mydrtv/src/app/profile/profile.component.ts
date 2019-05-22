@@ -43,7 +43,7 @@ export class ProfileComponent implements OnInit {
     // Get user data from the database
     // This data is commented out in the database now. Need another way.
     this.rest.getUser(this.userId).subscribe({
-      next: x => this.selectedUser = x,
+      next: result => this.selectedUser = result,
       error: err => this.userNotFound(),
       complete: () => this.onUserRetrieved(this.selectedUser)
     });
@@ -96,7 +96,7 @@ export class ProfileComponent implements OnInit {
 
     // Update user in the database
     this.rest.updateUser(this.userId, this.profileForm.value).subscribe({
-      next: x => this.selectedUser = x,
+      next: result => this.selectedUser = result,
       error: err => this.userNotFound(),
       complete: () => console.log('User updated')
     })
@@ -109,7 +109,7 @@ export class ProfileComponent implements OnInit {
   onDeleteUser(){
 
     this.rest.deleteUser(this.userId).subscribe({
-      next: x => console.log(x),
+      next: result => console.log(result),
       error: err => this.userNotFound(),
       complete: () => this.authService.logout()
     })
