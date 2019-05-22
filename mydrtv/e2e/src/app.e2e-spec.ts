@@ -8,9 +8,19 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display welcome message', () => {
+  it('should display read login button text', () => {
     page.navigateTo();
-    expect(page.getTitleText()).toEqual('Welcome to mydrtv!');
+    expect(page.getLoginButton().getText()).toEqual('Login');
+  });
+  
+  it('should display welcome page headline', () => {
+    page.navigateTo();
+    expect(page.getWelcomeHeadline()).toEqual('Danish cinema at its best');
+  });
+
+  it('should display welcome page subtext', () => {
+    page.navigateTo();
+    expect(page.getWelcomeSubtext()).toEqual('Discover the cultural film heritage of Denmark');
   });
 
   afterEach(async () => {
