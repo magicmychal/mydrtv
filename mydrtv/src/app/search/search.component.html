@@ -1,7 +1,7 @@
 <div class="container">
   <h3>N number of finds </h3>
 <div class="row">
-    <div *ngFor="let film of films" class="col-3">
+    <div *ngFor="let film of films | filmsSearch: searchInput" class="col-3">
       <a id="{{film._id}}" routerLink="/film/{{film._id}}" >
         <img class="filmImg" src="{{film.Poster}}" 
         alt="film-poster" width="inherit">

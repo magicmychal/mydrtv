@@ -26,7 +26,8 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { MoviesCardComponent } from './movies-card/movies-card.component';
 import { SearchComponent } from './search/search.component';
-import { AngularFontAwesomeModule } from 'angular-font-awesome'; //font awesome icons
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { FilmsSearchPipe } from './films-search.pipe'; //font awesome icons
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome'; //font awesome 
     ProfileComponent,
     LoginComponent,
     MoviesCardComponent,
-    SearchComponent
+    SearchComponent,
+    FilmsSearchPipe
   ],
   imports: [
     BrowserModule,
