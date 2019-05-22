@@ -29,7 +29,7 @@ export class ProfileComponent implements OnInit {
               private router: Router) {  }
 
   ngOnInit() {
-    this.userId = "5ce05a7d1021e32944745578";
+    this.userId = "5cdfd94944bd2b2ae0cb4f61";
     console.log('Userid is: ' + this.userId);
 
     // Create form with FormBuilder
