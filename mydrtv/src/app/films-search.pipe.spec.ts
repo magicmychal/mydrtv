@@ -12,7 +12,7 @@ describe('FilmsSearchPipe', () => {
     // Arrange - Act - Assert (expect)
 
     // Arrange
-    const filmsArray  = FilmRestService.body;
+    const filmsArray  = FilmRestService.films;
     const pipe = new FilmsSearchPipe();
 
     // Act
