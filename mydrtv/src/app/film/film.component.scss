@@ -1,0 +1,111 @@
+/* Colors */
+$blueGray: #263238;
+$lightWhite: #dedede;
+$main: #32b859;
+
+.container-fluid {
+    width: 70%;
+    margin-top: 20px;
+    margin-bottom: 80px;
+    position: relative;
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+.img-fluid {
+    width: 100%;
+    min-width: 100%;
+    cursor: pointer;
+}
+
+.itemsContainer {
+    position: relative;
+}
+
+.itemsContainer:hover {
+    .img-fluid {
+        background-color: black;
+        opacity: 0.4;
+    }
+}
+
+.itemsContainer:hover .play {
+    display: block;
+}
+
+.play{
+    position: absolute;
+    display: none;
+    top: 40%;
+    margin: 0 auto;
+    left: 0px;
+    right: 0px;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    border: solid 5px $main;
+    border-radius: 100px;
+    z-index: 100;
+    cursor: pointer;
+    
+    &:before {
+      content: "";
+      width: 34px;
+      height: 50px;
+      border-left: 5px solid $main;
+      border-radius: 5px;
+      position: absolute;
+      top: 19.5px;
+      left: 32px;
+    }
+    
+    &:after {
+      content: "";
+      position: absolute;
+      top: 24px;
+      left: 16px;
+      width: 43px;
+      height: 42px;
+      transform: rotate(45deg) skew(-5deg, -5deg);
+      border-top: 5px solid $main;
+      border-right: 5px solid $main;
+      border-radius: 5px;
+    }
+  }
+
+p {
+    margin-bottom: 70px;
+    font-size: 20px;
+    color: darkgray;
+}
+
+h4 {
+    font-size: 13px;
+    font-weight: bold;
+    margin-top: 15px;
+    margin-bottom: 0;
+}
+
+span {
+    font-size: 13px;
+}
+
+.btn {
+    background-color: transparent!important;
+    border-color: $main!important;
+    color: $lightWhite!important;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+  }
+
+  .btn:hover {
+    background-color: $main!important;
+  }
+
+  #info {
+      position: absolute;
+      bottom: 70px;
+  }

@@ -2,7 +2,7 @@
   <h2>{{notFound}}</h2>
 </div>
 
-<vg-player *ngIf="film" class="full-player">
+<vg-player *ngIf="film" (onPlayerReady)="onPlayerReady($event)" class="full-player">
   <vg-overlay-play></vg-overlay-play>
   <vg-buffering></vg-buffering>
 
