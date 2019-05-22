@@ -12,8 +12,10 @@ export class FilmsSearchPipe implements PipeTransform {
     //public rest: FilmRestService,
   ){}
 
-  transform(value: any, args?: any): any {
-    return null;
+  transform(films: Film[], search?: string): any {
+    console.log(films);
+    console.log(search)
+    return films.filter(film => film.Title.indexOf(search) !== -1);
   }
 
 }
