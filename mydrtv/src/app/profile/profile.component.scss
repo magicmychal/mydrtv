@@ -50,7 +50,7 @@ select, option {
     padding: 10px;
     position: absolute;
     right: 0;
-    bottom: -10px;
+    bottom: -5px;
     background-color: transparent!important;
     border-color: $main!important;
     color: $lightWhite!important;
@@ -64,12 +64,10 @@ select, option {
     text-align: center;
     font-size: 12px;
     color: #6e757c;
-    
 }
 
 #deleteButton {
     cursor: pointer;
-<<<<<<< HEAD
     font-size: 12px;
     color: #6e757c;
     text-decoration: underline;
@@ -77,7 +75,4 @@ select, option {
 
 #deleteButton:hover {
     color: red;
-=======
-    color: #007bff;
->>>>>>> remotes/origin/develop
 }
