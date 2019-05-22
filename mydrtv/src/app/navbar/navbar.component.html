@@ -45,6 +45,10 @@
               <div class="form-group">
                 <button type="submit" id="loginBtn" class="btn btn-primary btn-block" (click)="Login()">Login</button>
               </div>
+
+              <div *ngIf="submitted && f.login.errors" class="invalid-feedback">
+                  <div *ngIf="f.login.errors">E-mail does not exist</div>
+                </div>
             </li>
           </ul>
         </li>

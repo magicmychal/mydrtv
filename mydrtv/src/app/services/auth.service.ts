@@ -32,7 +32,7 @@ export class AuthService {
       .subscribe((resp: any) => {
         this.router.navigate(['/home']);
         localStorage.setItem('auth_token', resp.token);
-      });
+      }, err => console.log('error'));
   }
   loginForm(user) {
     //console.log('{email: ' + user.email + ', password:' + user.password + '}');
