@@ -79,3 +79,16 @@ $main: #32b859;
   #name {
       width: 100px!important;
   }
+
+
+  .invalid {
+    font-size: 12px;
+    display: none;
+    padding-top: 15px;
+  }
+
+  .invalid div {
+    font-size: 12px;
+    text-align: center;
+    color: red;
+  }
