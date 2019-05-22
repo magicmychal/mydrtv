@@ -1,5 +1,5 @@
 module.exports = (app) => {
-    //const films = require('../controllers/film.controller.js');
+    //const films-redux = require('../controllers/film.controller.js');
     const films = require('../controllers/film.controller');
 
     // Create a new Film
@@ -9,7 +9,7 @@ module.exports = (app) => {
     app.get('/films', films.findAll);
 
     // Retrieve a single Film with filmId
-    app.get('/films', films.findOne);
+    app.get('/films/:filmId', films.findOne);
 
     // Update a Film with filmId
     app.put('/films/:filmId', films.update);

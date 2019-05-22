@@ -1,0 +1,57 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark" role="navigation">
+  <div class="container">
+    <a class="navbar-brand" routerLink="/">MyDRTV</a>
+    <button class="navbar-toggler border-0" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">&#9776;</button>
+    
+    <div class="collapse navbar-collapse" id="exCollapsingNavbar">
+      <ul class="nav navbar-nav">
+        <li class="nav-item"><a href="#" class="nav-link" routerLink="/home" *ngIf="this.authService.isLoggedIn()">Home</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="films" routerLinkActive="active" *ngIf="this.authService.isLoggedIn()">Films</a></li>
+        <li class="nav-item"><a class="nav-link" style="float:right" routerLink="tv-series" routerLinkActive="active" *ngIf="this.authService.isLoggedIn()">TV-Series</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
+        <!-- Logged in -->
+        <li class="dropdown order-1" *ngIf="this.authService.isLoggedIn()">
+          <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">{{ user?.Name }} <span class="caret"></span></button>
+          <ul class="dropdown-menu dropdown-menu-right mt-2" id="name">
+            <li class="px-3">
+              <div class="form-group">
+                  <a class="nav-link" routerLink="profile" routerLinkActive="active" *ngIf="this.authService.isLoggedIn()">Profile</a>
+              </div>
+              <div class="form-group">
+                  <a class="nav-link" (click)="logout()" href="#" >Log out</a>
+              </div>
+            </li>
+          </ul>
+        </li>
+        
+
+
+        <!-- Logged out -->
+        <li class="nav-item order-2 order-md-1"><a href="#" class="nav-link" title="settings"><i class="fa fa-cog fa-fw fa-lg"></i></a></li>
+        <li class="dropdown order-1" *ngIf="!this.authService.isLoggedIn()">
+          <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Login <span class="caret"></span></button>
+          <ul class="dropdown-menu dropdown-menu-right mt-2">
+            <li class="px-3 py-3">
+              <div class="form-group">
+                <input id="email" type="email" placeholder="E-mail" [(ngModel)]="email" class="form-control form-control-sm" required="">
+              </div>
+              
+              <div class="form-group">
+                <input id="password" type="password" placeholder="Password" [(ngModel)]="password" class="form-control form-control-sm" required=""/>
+              </div>
+
+              <div class="form-group">
+                <button type="submit" id="loginBtn" class="btn btn-primary btn-block" (click)="Login()">Login</button>
+              </div>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav">
+          <li class="nav-item"><a class="nav-link" id="notUser" routerLink="signup" routerLinkActive="active" *ngIf="!this.authService.isLoggedIn()">Not a user?</a></li>
+        </ul>
+    </div>
+  </div>
+</nav>
