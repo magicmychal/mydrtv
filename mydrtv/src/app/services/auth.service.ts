@@ -1,46 +1,68 @@
 import {Injectable} from '@angular/core';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Router} from '@angular/router';
+import {Store} from '@ngrx/store';
+import * as UserActions from '../redux/user-state-management/user.actions';
 
 @Injectable({
-  providedIn: 'root'
+    providedIn: 'root'
 })
 export class AuthService {
-  endpoint = 'http://localhost:3000/users/login';
-  token;
-  constructor(
-    private http: HttpClient,
-    private router: Router
-  ) {}
+    endpoint = 'http://localhost:3000/users/login';
+    token;
 
-  public isLoggedIn(): boolean {
-    //return (localStorage.getItem('auth_token') !== null);
-    if (localStorage.getItem('auth_token')) {
-      // user logged in
-      return true;
-    } else {
-      // user logged out
-      return false;
+    constructor(
+        private http: HttpClient,
+        private router: Router,
+        private store: Store<any>
+    ) {
     }
-  }
-  public logout() {
-    localStorage.removeItem('auth_token');
-  }
-  login(email: string, password: string) {
-    console.log('{email: ' + email + ', password:' + password + '}');
-    this.http.post(this.endpoint, {email: email, password: password})
-      .subscribe((resp: any) => {
-        this.router.navigate(['/home']);
-        localStorage.setItem('auth_token', resp.token);
-      });
-  }
-  loginForm(user) {
-    //console.log('{email: ' + user.email + ', password:' + user.password + '}');
-     this.http.post(this.endpoint, user)
-      .subscribe((resp: any) => {
-        localStorage.setItem('auth_token', resp.token);
-        this.router.navigate(['/home']);
-      });
-  }
+
+    public isLoggedIn(): boolean {
+        //return (localStorage.getItem('auth_token') !== null);
+        if (localStorage.getItem('auth_token')) {
+            // user logged in
+            return true;
+        } else {
+            // user logged out
+            return false;
+        }
+    }
+
+    public logout() {
+        localStorage.removeItem('auth_token');
+    }
+
+    loginINACTIVE(email: string, password: string) {
+        console.log('{email: ' + email + ', password:' + password + '}');
+        this.http.post(this.endpoint, {email: email, password: password})
+            .subscribe((resp: any) => {
+                localStorage.setItem('auth_token', resp.token);
+                // dispatch an action
+
+                this.router.navigate(['/home']);
+            });
+    }
+
+    login(email: string, password: string) {
+        console.warn('login with redux');
+        this.http.post(this.endpoint, {email: email, password: password})
+            .subscribe((resp: any) => {
+                localStorage.setItem('auth_token', resp.token);
+                // dispatch an action
+                const userInfo = {Name: 'Michal', Email: 'michal@michal.pl', Password: 'dupa123', Gender: 'Mal' +
+                        'e', History: []}
+                this.store.dispatch(new UserActions.LogIn(userInfo));
+                this.router.navigate(['/home']);
+            });
+    }
+
+    loginForm(user) {
+        this.http.post(this.endpoint, user)
+            .subscribe((resp: any) => {
+                localStorage.setItem('auth_token', resp.token);
+                this.router.navigate(['/home']);
+            });
+    }
 
 }
