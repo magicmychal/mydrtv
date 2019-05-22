@@ -25,17 +25,30 @@ export class UsersService {
     return body || {};
   }
 
-  getUser(id): Observable<any> {
-    return this.http.get(endpoint + id).pipe(
-      map(this.extractData));
-  }
-
-
   addUser(user: User): Observable<User> {
     console.log(user);
     return this.http.post<User>(endpoint, JSON.stringify(user), httpOptions).pipe(
       tap((newUser: User) => console.log(`added user`)),
       catchError(this.handleError<User>('addUser'))
+    );
+  }
+
+  getUser(id: string): Observable<any> {
+    return this.http.get(endpoint + id).pipe(
+      map(this.extractData));
+  }
+
+  updateUser(id: string, user: User): Observable<any> {
+    return this.http.put(endpoint + id, JSON.stringify(user), httpOptions).pipe(
+      tap(_ => console.log(`updated user id=${id}`)),
+      catchError(this.handleError<any>('updateUser'))
+    );
+  }
+
+  deleteUser(id: string): Observable<User> {
+    return this.http.delete<User>(endpoint+ id, httpOptions).pipe(
+      tap(_ => console.log(`deleted user id=${id}`)),
+      catchError(this.handleError<any>('deleteProduct'))
     );
   }
 
