@@ -3,37 +3,49 @@
 </div>
 
 <div *ngIf="film" class="container-fluid">
+
   <div class="row">
     <div class="col-12">
       <h1>{{film.Title}}</h1>
     </div>
   </div>
-  <div class="row justify-content-md-center row-player">
-    <div class="col-6">
+
+  <div class="row">
+    <div class="col-5">
       <div routerLink="player">
-        <img src="{{film.Poster}}" routerLink="/film/player/{{film._id}}" alt="Video player" class="img-fluid">
+          <div class="itemsContainer">
+          <div class="image">
+              <img src="{{film.Poster}}" routerLink="/film/player/{{film._id}}" alt="Video player" class="img-fluid">
+          </div>
+          <div class="play"></div>
+      </div>
       </div>
     </div>
-  </div>
-  <div class="row justify-content-md-center">
+    
+
     <div class="col-7">
       <p>
        {{film.Plot}}
       </p>
-    </div>
-    <div class="col-3">
-      <h4>Director</h4>
-      <span>{{film.Director}}</span>
-      <h4>Genre</h4>
-      <span>{{film.Genre}}</span>
-      <h4>Cast</h4>
-      <span>{{film.Actors}}</span>
-      <h4>Year</h4>
-      <span>{{film.Year}}</span>
-      <h4>Language(s)</h4>
-      <span>{{film.Language}}</span>
-      <h4>Subtitles</h4>
-      <span>{{film.Subtitles}}</span>
+      
+      <div id="info">
+        <h4>Director</h4>
+        <span>{{film.Director}}</span>
+        <h4>Genre</h4>
+        <span>{{film.Genre}}</span>
+        <h4>Cast</h4>
+        <span>{{film.Actors}}</span>
+        <h4>Year</h4>
+        <span>{{film.Year}}</span>
+        <h4>Language(s)</h4>
+        <span>{{film.Language}}</span>
+        <h4>Subtitles</h4>
+        <span>{{film.Subtitles}}</span>
+      </div>
+
+      <div routerLink="player">
+          <button routerLink="/film/player/{{film._id}}" type="button" class="btn">Play film</button>
+        </div>
 
     </div>
   </div>

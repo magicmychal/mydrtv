@@ -6,41 +6,46 @@
 Colors
 */
 $blueGray: #263238;
-$lightWhite: #CFBABA;
+$lightWhite: #dedede;
+$main: #32b859;
 
-body{
+* {
+  font-size: 16px;
+  font-family: 'Montserrat'!important;
+}
+
+body {
   margin: 0 !important;
   background-color: $blueGray !important;
   color: $lightWhite !important;
 }
 
-* {
-  font-size: 16px;
-  font-family: Arial;
-}
-
 form {
-  max-width: 800px;
-  padding-right: 20px;
-  padding-left: 35px;
-  padding-top: 10px;
-  padding-bottom: 50px;
-  //border: 1px solid lightgray;
+  width: 500px;
   position: relative;
   margin: 0 auto;
   margin-top: 50px;
 }
 
-p {
-  margin-block-start: 30px;
-  margin-block-end: 5px;
+input {
+  position: relative;
+  width: 100%;
+  background-color: transparent!important;
+  color: $lightWhite!important;
+  margin-top: 40px!important;
 }
 
-label {
-  margin-top: 10px;
+.invalid-feedback div {
+  font-size: 12px;
+  float: right;
 }
 
 .invalid-feedback {
   color: red;
-  font-size: 6px; 
+  position: absolute;
+}
+
+input:focus, select:focus, button:focus, button:active {
+  box-shadow: none !important;
+  border:1px solid $main!important;
 }
