@@ -1,5 +1,4 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import {FilmRestService} from "./services/film-rest.service";
 import { Film } from './entities/films';
 
 @Pipe({

@@ -2,7 +2,7 @@
     <div class="search-input">
         <input [(ngModel)]="searchInput" type="search" class="search-bar" placeholder="Search movies">
       </div>
-  <h3>N number of finds </h3>
+      <br>
 <div class="row">
     <div *ngFor="let film of films | filmsSearch: searchInput" class="col-3">
       <a id="{{film._id}}" routerLink="/film/{{film._id}}" >
