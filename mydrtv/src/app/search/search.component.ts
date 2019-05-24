@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {FilmRestService} from "../services/film-rest.service";
 
+
 @Component({
   selector: 'app-search',
   templateUrl: './search.component.html',
