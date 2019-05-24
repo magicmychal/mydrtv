@@ -14,7 +14,7 @@ export class FilmsSearchPipe implements PipeTransform {
   transform(films: Film[], search: string = ""): any {
     console.log(films);
     console.log(search);
-    return films.filter(film => film.Title.indexOf(search) !== -1);
+    return films.filter(film => film.Title.toLowerCase().indexOf(search.toLowerCase()) !== -1);
   }
 
 }
