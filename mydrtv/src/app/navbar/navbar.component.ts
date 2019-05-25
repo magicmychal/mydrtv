@@ -9,8 +9,7 @@ import {Store} from '@ngrx/store';
 import * as UserActions from '../redux/user-state-management/user.actions';
 
 import {UserModel} from '../models/user.model';
-import {User} from "../entities/users";
-import {Observable} from "rxjs";
+import {Observable} from 'rxjs';
 
 
 @Component({
@@ -48,7 +47,7 @@ export class NavbarComponent implements OnInit {
          */
 
         if (localStorage.getItem('auth_token') && !this.userName) {
-            //dispatch action
+            // dispatch action
             this.rest.getUser(localStorage.getItem('user_id')).subscribe({
                 next: userInfo => this.store.dispatch(new UserActions.LogIn(userInfo)),
                 error: err => this.userNotFound(),
@@ -80,7 +79,7 @@ export class NavbarComponent implements OnInit {
         this.notFound = 'User not found. You will be redirected to the main page in a moment...';
         setTimeout(() => {
             this.router.navigate(['/']);
-        }, 3000);  //3s
+        }, 3000);  // 3s
     }
 
     getCurrentUser(): Observable<UserModel> {
