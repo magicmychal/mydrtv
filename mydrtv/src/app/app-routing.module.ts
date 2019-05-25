@@ -53,7 +53,8 @@ const routes: Routes = [
     },
     {
         path: 'search',
-        component: SearchComponent
+        component: SearchComponent,
+        canActivate: [AuthGuardService]
     },
     {
         path: 'members',
