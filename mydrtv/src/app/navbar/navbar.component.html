@@ -8,7 +8,7 @@
         <li class="nav-item"><a href="#" class="nav-link" routerLink="/home" *ngIf="this.authService.isLoggedIn()">Home</a></li>
         <li class="nav-item"><a class="nav-link" routerLink="films" routerLinkActive="active" *ngIf="this.authService.isLoggedIn()">Films</a></li>
         <li class="nav-item"><a class="nav-link" style="float:right" routerLink="tv-series" routerLinkActive="active" *ngIf="this.authService.isLoggedIn()">TV-Series</a></li>
-        <li class="nav-item"><a class="nav-link" style="float:right" routerLink="search" routerLinkActive="active" ><img class="searchIcon" src="../../assets/search.png"></a></li>
+        <li class="nav-item"><a class="nav-link" style="float:right" routerLink="search" routerLinkActive="active" *ngIf="this.authService.isLoggedIn()" ><img class="searchIcon" src="../../assets/search.png"></a></li>
       </ul>
 
       <ul class="nav navbar-nav flex-row justify-content-between ml-auto">
@@ -28,7 +28,6 @@
         </li>
         
         <!-- Logged out -->
-        <li class="nav-item order-2 order-md-1"><a href="#" class="nav-link" title="settings"><i class="fa fa-cog fa-fw fa-lg"></i></a></li>
         <li class="dropdown order-1" *ngIf="!this.authService.isLoggedIn()">
           <button type="button" id="dropdownMenu1" data-toggle="dropdown" class="btn btn-outline-secondary dropdown-toggle">Login <span class="caret"></span></button>
           <ul class="dropdown-menu dropdown-menu-right mt-2">
