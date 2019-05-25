@@ -23,6 +23,13 @@ export class NavbarComponent implements OnInit {
     email = '';
     password = '';
 
+    user: any;
+    notFound: string;
+
+    // only for the logged in user
+    currentUser: any;
+    userName: string;
+
     constructor(
         private authService: AuthService,
         private globals: Globals,
@@ -32,22 +39,22 @@ export class NavbarComponent implements OnInit {
         private store: Store<UserModel>) {
     }
 
-    public usersId: string;
-    user: any;
-    notFound: string;
-
-    // only for the logged in user
-    currentUser: any;
-    userName: string;
-
     ngOnInit() {
-        this.usersId = "5ce1b9264f2e1fa29e4ee216"; //this.route.snapshot.params.id;
-        console.log('user id is: ', this.usersId);
-        this.rest.getUser(this.usersId).subscribe({
-            next: x => this.user = x,
-            error: err => this.userNotFound(),
-            complete: () => console.log('done')
-        });
+        /*
+        Redux state is saved for the currently open window.
+        If the user closes the window and opens it up again, we lose it.
+        Therefore if the state does not exist and the user is logged in
+        we need to create the state.
+         */
+
+        if (localStorage.getItem('auth_token') && !this.userName) {
+            //dispatch action
+            this.rest.getUser(localStorage.getItem('user_id')).subscribe({
+                next: userInfo => this.store.dispatch(new UserActions.LogIn(userInfo)),
+                error: err => this.userNotFound(),
+                complete: () => console.log('done')
+            });
+        }
 
         this.getCurrentUser().subscribe({
             next: result => this.userName = result.Name,

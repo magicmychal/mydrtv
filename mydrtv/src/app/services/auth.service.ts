@@ -34,10 +34,10 @@ export class AuthService {
     }
 
     login(email: string, password: string) {
-        console.warn('login with redux');
         this.http.post(this.endpoint, {email: email, password: password})
             .subscribe((resp: any) => {
                 localStorage.setItem('auth_token', resp.token);
+                localStorage.setItem('user_id', resp.id);
                 // dispatch an action
                 const userInfo = {Id: resp._id, Name: resp.Name, Email: resp.Email, Password: resp.password, Gender: resp.Gender
                     , History: []}

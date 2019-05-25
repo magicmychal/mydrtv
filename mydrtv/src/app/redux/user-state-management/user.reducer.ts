@@ -12,10 +12,12 @@ export function userReducer(
                 ...state,
                 ...action.payload
             };
+        case UserActions.GET_USERNAME:
+            return {
+              ...state,
+              ...action.payload
+            };
         default:
             return state;
-        case UserActions.PRINT_STORE:
-            console.warn('Initial state', state);
-            console.log('New state,');
     }
 }

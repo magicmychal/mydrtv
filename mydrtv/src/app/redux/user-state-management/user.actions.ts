@@ -3,6 +3,7 @@ import {UserModel} from '../../models/user.model';
 
 export const SAVE_USER_INFO = 'SAVE_USER_INFO';
 export const LOG_IN = 'LOG_IN';
+export const GET_USERNAME = 'GET_USERNAME';
 
 export class SaveUserInfo implements Action {
     // what does it do tho?
@@ -19,4 +20,11 @@ export class LogIn implements Action {
     }
 }
 
-export type UserActions = SaveUserInfo | LogIn;
+export class GetUsername implements Action {
+    readonly type = GET_USERNAME;
+
+    constructor(public payload: { Name: string }) {
+    }
+}
+
+export type UserActions = SaveUserInfo | LogIn | GetUsername;
