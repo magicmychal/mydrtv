@@ -1,7 +1,9 @@
 <form [formGroup]="signupForm" (ngSubmit)="onSubmit()"> 
+    <h2>Sign up</h2>
+
       <input placeholder="Name" type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
         <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
-          <div *ngIf="f.name.errors.required">First Name is required</div>
+          <div *ngIf="f.name.errors.required">Name is required</div>
         </div>
 
 
@@ -39,7 +41,6 @@
                       <div *ngIf="f.checkbox.errors.pattern">You cannot sign up if you do not agree</div>
                     </div>
                 </label>
-
 
     <div class="form-group">
       <button [disabled]="loading" class="btn btn-primary">Sign up</button>

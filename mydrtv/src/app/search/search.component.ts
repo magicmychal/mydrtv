@@ -1,13 +1,15 @@
 import { Component, OnInit } from '@angular/core';
-import {FilmRestService} from "../services/film-rest.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import {FilmRestService} from "../services/film-rest.service";
+
 
 @Component({
-  selector: 'app-movie-carousel',
-  templateUrl: './movie-carousel.component.html',
-  styleUrls: ['./movie-carousel.component.scss']
+  selector: 'app-search',
+  templateUrl: './search.component.html',
+  styleUrls: ['./search.component.scss']
 })
-export class MovieCarouselComponent implements OnInit {
+export class SearchComponent implements OnInit {
+
   private genres;
   films: any;
   notFound: string;
@@ -15,7 +17,7 @@ export class MovieCarouselComponent implements OnInit {
   constructor(
     public rest: FilmRestService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router 
   ) {
     this.genres = ["Comedy", "Thriller", "Crime", "Drama", "War", "Biography", "History", "Romance", "Family"];
    }
@@ -30,4 +32,5 @@ export class MovieCarouselComponent implements OnInit {
   filmNotFound() {
     this.notFound = 'Movie not found. You will be redirected to the main page in a moment...';
   }
+
 }

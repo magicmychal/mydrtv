@@ -1,24 +1,25 @@
 <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-  <label>
-    <p>E-mail:</p>
-    <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+  <h2>Login</h2>
+  
+    <input placeholder="E-mail" type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
     <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
       <div *ngIf="f.email.errors.required">E-mail is required</div>
       <div *ngIf="f.email.errors.email">E-mail must be a valid e-mail address</div>
     </div>
-  </label>
 
-  <label>
-    <p>Password:</p>
-    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+    <input placeholder="Password" type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
     <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
       <div *ngIf="f.password.errors.required">Password is required</div>
       <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
     </div>
-  </label>
 
   <div class="form-group">
-    <button [disabled]="loading" class="btn btn-primary">Sign up</button>
+    <button [disabled]="loading" class="btn btn-primary">Login</button>
   </div>
 
 </form>
+
+
+<div class="invalid" id="wrong-form">
+    <div>Wrong e-mail or password</div>
+</div>

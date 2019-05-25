@@ -56,7 +56,7 @@ export class SignupComponent implements OnInit {
       next: x => this.selectedUser = x,
       error: err => this.userNotFound(),
       // TO DO: change it to login, when we have the page
-      complete: () => this.router.navigate(['/'])
+      complete: () => this.router.navigate(['/home'])
     });
     }
     // if the user was not found in the database

@@ -103,18 +103,21 @@ exports.findOne = (req, res) => {
         .then(users => {
             if(!users) {
                 return res.status(404).send({
-                    message: "User not found with id " + req.params.usersId
+                    message: "User not found with id " + req.params.usersId,
+                    status: 500
                 });
             }
             res.send(users);
         }).catch(err => {
         if(err.kind === 'usersId') {
             return res.status(404).send({
-                message: "User not found with id " + req.params.usersId
+                message: "User not found with id " + req.params.usersId,
+                status: 500
             });
         }
         return res.status(500).send({
-            message: "Error retrieving user with id " + req.params.usersId
+            message: "Error retrieving user with id " + req.params.usersId,
+            status: 500
         });
     });
 };
