@@ -68,9 +68,6 @@ export class NavbarComponent implements OnInit {
         this.authService.logout();
     }
 
-    consoleRedux() {
-        this.store.dispatch(new UserActions.PrintStore());
-    }
 
     userNotFound() {
         this.notFound = 'User not found. You will be redirected to the main page in a moment...';
