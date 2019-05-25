@@ -27,7 +27,7 @@ export class AppPage {
     //browser.sleep(1000);
     $$('.userBox').then( (usersBeforeSignup) => {
       let numberOfUsersBefore = usersBeforeSignup.length;
-      console.log(numberOfUsersBefore)
+      //console.log(numberOfUsersBefore)
 
       element(by.id('dropdownMenu1')).click();
       //browser.sleep(1000);
@@ -57,7 +57,7 @@ export class AppPage {
 
       $$('.userBox').then((usersAfterSignup) => {
         expect(usersAfterSignup.length - numberOfUsersBefore).toEqual(1);
-        console.log(usersAfterSignup.length);
+        //console.log(usersAfterSignup.length);
       })
     })
   }
