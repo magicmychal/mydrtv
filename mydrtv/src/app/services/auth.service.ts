@@ -43,7 +43,7 @@ export class AuthService {
                     , History: []}
                 this.store.dispatch(new UserActions.LogIn(userInfo));
                 this.router.navigate(['/home']);
-            });
+            }, err => document.getElementById("wrong").style.display ="block"), document.getElementById('dropdownMenu1').setAttribute("data-toggle", "");
     }
 
     loginForm(user) {
@@ -51,7 +51,7 @@ export class AuthService {
             .subscribe((resp: any) => {
                 localStorage.setItem('auth_token', resp.token);
                 this.router.navigate(['/home']);
-            });
+            }, err => document.getElementById("wrong-form").style.display ="block");
     }
 
 }
