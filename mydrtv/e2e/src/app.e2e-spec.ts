@@ -53,7 +53,7 @@ describe('workspace-project App', () => {
 
   it('should fill out input fields in signup', () => {
     expect(page.fillInputsSignup())
-    browser.sleep(30000);
+    //browser.sleep(30000);
   });
 
   it('should click signup button', () => {

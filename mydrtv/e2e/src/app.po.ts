@@ -31,8 +31,8 @@ export class AppPage {
     let x =  $$('#txtNameSignup').sendKeys("John"); 
              $$('#txtEmailSignup').sendKeys("john@gmail.com"); 
              $$('#txtPasswordSignup').sendKeys("123456"); 
-             $$('txtGenderSignup').sendKeys("M");
-             $$('txtCheckboxSignup').sendKeys(Key.SPACE);
+             $$('#txtGenderSignup').sendKeys("M");
+             $$('#txtCheckboxSignup').sendKeys(Key.SPACE);
     return x;
   }
 
@@ -41,8 +41,8 @@ export class AppPage {
   }
 
   fillInputsLogin(){
-    let result =  element(by.id('txtEmail')).sendKeys("john@gmail.com"); 
-                  element(by.id('txtPassword')).sendKeys("123456"); 
+    let result =  $$('#txtEmailLogin').sendKeys("john@gmail.com");
+                  $$('#txtPasswordLogin').sendKeys("123456"); 
     return result;
   }
 
