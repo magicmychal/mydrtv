@@ -8,7 +8,8 @@ import {ProfileComponent} from './profile/profile.component';
 import {LoginComponent} from './login/login.component';
 import {AuthGuardService} from './services/auth-guard.service';
 import { SearchComponent } from './search/search.component';
-import {WelcomeComponent} from "./welcome/welcome.component";
+import { WelcomeComponent } from "./welcome/welcome.component";
+import { MembersComponent } from "./members/members.component";
 
 const routes: Routes = [
     {
@@ -53,6 +54,10 @@ const routes: Routes = [
     {
         path: 'search',
         component: SearchComponent
+    },
+    {
+        path: 'members',
+        component: MembersComponent
     },
 ]
 
