@@ -1,0 +1,41 @@
+/*
+Colors
+*/
+$blueGray: #263238;
+$lightWhite: #dedede;
+$main: #32b859;
+
+.user {
+    margin-bottom: 30px!important;
+    margin-right: 80px;
+    min-width: 500px!important;
+    max-width: 500px!important;
+}
+
+.row {
+    margin-top: 30px;
+    margin-bottom: 50px;
+}
+
+.col-9 {
+    padding-top: 20px;
+    padding-left: 40px;
+}
+
+img {
+    border-radius: 500px;
+    min-width: 120px;
+    max-width: 120px;
+    min-height: 120px;
+    max-height: 120px;
+    object-fit: cover;
+}
+
+#name {
+    color: $main;
+    font-weight: bold;
+}
+
+.gender {
+    color: #6e757c;
+}

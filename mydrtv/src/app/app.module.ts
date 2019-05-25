@@ -23,6 +23,7 @@ import {SignupComponent} from './signup/signup.component';
 
 import {NavbarComponent} from './navbar/navbar.component';
 import {ProfileComponent} from './profile/profile.component';
+import {MembersComponent} from './members/members.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { LoginComponent } from './login/login.component';
 import { MoviesCardComponent } from './movies-card/movies-card.component';
@@ -53,7 +54,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
         MoviesCardComponent,
         WelcomeComponent,
         SearchComponent,
-        FilmsSearchPipe
+        FilmsSearchPipe,
+        MembersComponent
     ],
     imports: [
         BrowserModule,
@@ -64,6 +66,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
         VgOverlayPlayModule,
         VgBufferingModule,
         HttpClientModule,
+        StoreModule.forRoot({films: filmsReducer}),
         ReactiveFormsModule,
         AngularFontAwesomeModule,
         BrowserAnimationsModule,
