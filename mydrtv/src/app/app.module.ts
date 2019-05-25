@@ -25,40 +25,46 @@ import {SignupComponent} from './signup/signup.component';
 import {NavbarComponent} from './navbar/navbar.component';
 import {ProfileComponent} from './profile/profile.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import {LoginComponent} from './login/login.component';
-import {MoviesCardComponent} from './movies-card/movies-card.component';
+import { LoginComponent } from './login/login.component';
+import { MoviesCardComponent } from './movies-card/movies-card.component';
+import { SearchComponent } from './search/search.component';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { FilmsSearchPipe } from './films-search.pipe'; //font awesome icons
 import {WelcomeComponent} from './welcome/welcome.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        PlayerComponent,
-        FilmComponent,
-        HomeComponent,
-        MovieCarouselComponent,
-        SignupComponent,
-        NavbarComponent,
-        ProfileComponent,
-        LoginComponent,
-        MoviesCardComponent,
-        WelcomeComponent
-    ],
-    imports: [
-        BrowserModule,
-        FormsModule,
-        AppRoutingModule,
-        VgCoreModule,
-        VgControlsModule,
-        VgOverlayPlayModule,
-        VgBufferingModule,
-        HttpClientModule,
-        StoreModule.forRoot({films: filmsReducer}),
-        ReactiveFormsModule,
-        BrowserAnimationsModule
-    ],
-    providers: [],
-    bootstrap: [AppComponent]
+  declarations: [
+    AppComponent,
+    PlayerComponent,
+    FilmComponent,
+    HomeComponent,
+    MovieCarouselComponent,
+    SignupComponent,
+    NavbarComponent,
+    ProfileComponent,
+    LoginComponent,
+    MoviesCardComponent,
+    SearchComponent,
+    FilmsSearchPipe,
+    WelcomeComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    AppRoutingModule,
+    VgCoreModule,
+    VgControlsModule,
+    VgOverlayPlayModule,
+    VgBufferingModule,
+    HttpClientModule,
+    StoreModule.forRoot({films: filmsReducer}),
+    ReactiveFormsModule,
+    AngularFontAwesomeModule,
+    BrowserAnimationsModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
 }
