@@ -29,7 +29,13 @@ describe('workspace-project App', () => {
     //browser.sleep(3000);
   });
 
+  it('should count members before signup, log out, signup, login , go to members, count members after signup', () => {
+    expect(page.signupUser())
+    //browser.sleep(10000);
+    
+  });
 
+/*
   it('should count the members before signup', () => {
     expect(page.countMembers())
     //browser.sleep(3000);
@@ -83,5 +89,5 @@ describe('workspace-project App', () => {
       level: logging.Level.SEVERE,
     } as logging.Entry));
   });
-
+*/
 });
