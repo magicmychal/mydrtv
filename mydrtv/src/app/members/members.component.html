@@ -1,9 +1,8 @@
 <div class="container">
 
 <div class="row">
-  <div *ngFor="let user of users">
-    <a id="{{user._id}}">
-      <div class="row user">
+  <div class="userBox" *ngFor="let user of users">
+      <div class="row user" id="{{user._id}}">
         <div class="col-3">
           <div *ngIf="user.Gender == 'M'"><img src="../../assets/default-man.jpg"></div>
           <div *ngIf="user.Gender == 'F'"><img src="../../assets/default-woman.jpg"></div>
@@ -15,7 +14,6 @@
           <div *ngIf="user.Gender == 'F'" class="gender"><div>Female</div></div>
         </div>
       </div>
-    </a>
   </div>
 
 </div>

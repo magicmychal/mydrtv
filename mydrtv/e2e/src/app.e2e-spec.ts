@@ -1,5 +1,5 @@
 import { AppPage } from './app.po';
-import { browser, logging } from 'protractor';
+import { browser, logging, $$ } from 'protractor';
 
 describe('workspace-project App', () => {
   let page: AppPage;
@@ -8,19 +8,72 @@ describe('workspace-project App', () => {
     page = new AppPage();
   });
 
-  it('should display read login button text', () => {
+  it('should click login dropdown', () => {
     page.navigateTo();
-    expect(page.getLoginButton().getText()).toEqual('Login');
-  });
-  
-  it('should display welcome page headline', () => {
-    page.navigateTo();
-    expect(page.getWelcomeHeadline()).toEqual('Danish cinema at its best');
+    expect(page.clickLoginDropdown());
+    // browser.sleep(5000);
   });
 
-  it('should display welcome page subtext', () => {
-    page.navigateTo();
-    expect(page.getWelcomeSubtext()).toEqual('Discover the cultural film heritage of Denmark');
+  it('should fill out input fields in login dropdown', () => {
+    expect(page.fillInputsLoginDropdown());
+    //browser.sleep(5000);
+  });
+
+  it('should click login dropdown button', () => {
+    expect(page.clickLoginDropdownButton())
+    //browser.sleep(3000);
+  }); 
+
+  it('should navigate to members page by button-click', () => {
+    expect(page.clickMembers())
+    //browser.sleep(3000);
+  });
+
+
+  it('should count the members before signup', () => {
+    expect(page.countMembers())
+    //browser.sleep(3000);
+    
+  });
+
+  it('should click on user dropdown', () => {
+    expect(page.clickLoginDropdown())
+    //browser.sleep(3000);
+  });
+
+  it('should click on logout', () => {
+    expect(page.clickLogout())
+    //browser.sleep(3000);
+  });
+
+  it('should navigate to the signup page by button-click', () => {
+    expect(page.clickSignup())
+    //browser.sleep(30000);
+  });
+
+  it('should fill out input fields in signup', () => {
+    expect(page.fillInputsSignup())
+    browser.sleep(30000);
+  });
+
+  it('should click signup button', () => {
+    expect(page.clickSignupButton())
+    //browser.sleep(3000);
+  });
+
+  it('should fill out input fields in login', () => {
+    expect(page.fillInputsLogin())
+    //browser.sleep(30000);
+  });
+
+  it('should click login button', () => {
+    expect(page.clickLoginButton())
+    //browser.sleep(3000);
+  });
+
+  it('should navigate to members page by button-click', () => {
+    expect(page.clickMembers())
+    //browser.sleep(3000);
   });
 
   afterEach(async () => {
@@ -30,4 +83,5 @@ describe('workspace-project App', () => {
       level: logging.Level.SEVERE,
     } as logging.Entry));
   });
+
 });
