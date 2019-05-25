@@ -5,4 +5,3 @@ export class User {
     Gender: String;
     History: [];
   }
-  
