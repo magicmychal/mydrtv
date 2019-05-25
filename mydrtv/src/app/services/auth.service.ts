@@ -19,7 +19,7 @@ export class AuthService {
     }
 
     public isLoggedIn(): boolean {
-        //return (localStorage.getItem('auth_token') !== null);
+        // return (localStorage.getItem('auth_token') !== null);
         if (localStorage.getItem('auth_token')) {
             // user logged in
             return true;
@@ -33,25 +33,14 @@ export class AuthService {
         localStorage.removeItem('auth_token');
     }
 
-    loginINACTIVE(email: string, password: string) {
-        console.log('{email: ' + email + ', password:' + password + '}');
-        this.http.post(this.endpoint, {email: email, password: password})
-            .subscribe((resp: any) => {
-                localStorage.setItem('auth_token', resp.token);
-                // dispatch an action
-
-                this.router.navigate(['/home']);
-            });
-    }
-
     login(email: string, password: string) {
         console.warn('login with redux');
         this.http.post(this.endpoint, {email: email, password: password})
             .subscribe((resp: any) => {
                 localStorage.setItem('auth_token', resp.token);
                 // dispatch an action
-                const userInfo = {Name: 'Michal', Email: 'michal@michal.pl', Password: 'dupa123', Gender: 'Mal' +
-                        'e', History: []}
+                const userInfo = {Id: resp._id, Name: resp.Name, Email: resp.Email, Password: resp.password, Gender: resp.Gender
+                    , History: []}
                 this.store.dispatch(new UserActions.LogIn(userInfo));
                 this.router.navigate(['/home']);
             });

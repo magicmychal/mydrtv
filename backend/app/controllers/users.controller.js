@@ -61,7 +61,7 @@ exports.login = (req, res) => {
             // what to find
             {Email: req.body.email},
             // what to return
-            'Name Email Password',
+            'Name Email Password Gender',
             // what to execute?
             function (err, user) {
                 if (err) {
@@ -82,7 +82,10 @@ exports.login = (req, res) => {
                     let token = jwt.sign(tokenContent, JWT_Secret);
                     res.status(200).send({
                         id: user._id,
-                        signed_user: email,
+                        Name: user.Name,
+                        Email: email,
+                        Password: user.Password,
+                        Gender: user.Gender,
                         token: token
                     });
                 } else {
