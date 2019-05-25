@@ -32,3 +32,16 @@ form {
   label {
       margin-top: 38px!important;
   }
+
+  .invalid {
+    font-size: 12px;
+    display: none;
+    position:relative;
+    bottom: -100px;
+  }
+
+  .invalid div {
+    font-size: 12px;
+    text-align: center;
+    color: #cb444a;
+  }

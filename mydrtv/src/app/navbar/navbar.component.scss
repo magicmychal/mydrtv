@@ -84,3 +84,16 @@ $main: #32b859;
   height: 20px;
   width: auto;
 }
+
+
+  .invalid {
+    font-size: 12px;
+    display: none;
+    padding-top: 15px;
+  }
+
+  .invalid div {
+    font-size: 12px;
+    text-align: center;
+    color: red;
+  }
