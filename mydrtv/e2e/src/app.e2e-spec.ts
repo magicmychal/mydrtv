@@ -29,57 +29,10 @@ describe('workspace-project App', () => {
     //browser.sleep(3000);
   });
 
-  it('should count members before signup, log out, signup, login , go to members, count members after signup', () => {
+  it('should count members before signup, log out, signup, login, go to members, count members after signup', () => {
     expect(page.signupUser())
     //browser.sleep(10000);
     
-  });
-
-/*
-  it('should count the members before signup', () => {
-    expect(page.countMembers())
-    //browser.sleep(3000);
-    
-  });
-
-  it('should click on user dropdown', () => {
-    expect(page.clickLoginDropdown())
-    //browser.sleep(3000);
-  });
-
-  it('should click on logout', () => {
-    expect(page.clickLogout())
-    //browser.sleep(3000);
-  });
-
-  it('should navigate to the signup page by button-click', () => {
-    expect(page.clickSignup())
-    //browser.sleep(30000);
-  });
-
-  it('should fill out input fields in signup', () => {
-    expect(page.fillInputsSignup())
-    //browser.sleep(30000);
-  });
-
-  it('should click signup button', () => {
-    expect(page.clickSignupButton())
-    //browser.sleep(3000);
-  });
-
-  it('should fill out input fields in login', () => {
-    expect(page.fillInputsLogin())
-    //browser.sleep(30000);
-  });
-
-  it('should click login button', () => {
-    expect(page.clickLoginButton())
-    //browser.sleep(3000);
-  });
-
-  it('should navigate to members page by button-click', () => {
-    expect(page.clickMembers())
-    //browser.sleep(3000);
   });
 
   afterEach(async () => {
@@ -89,5 +42,5 @@ describe('workspace-project App', () => {
       level: logging.Level.SEVERE,
     } as logging.Entry));
   });
-*/
+
 });
