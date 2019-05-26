@@ -5,7 +5,7 @@ import { MoviesCardComponent } from '../movies-card/movies-card.component';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
-fdescribe('MovieCarouselComponent', () => {
+describe('MovieCarouselComponent', () => {
   let component: MovieCarouselComponent;
   let fixture: ComponentFixture<MovieCarouselComponent>;
 
