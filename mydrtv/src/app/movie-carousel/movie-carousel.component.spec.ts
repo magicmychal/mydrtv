@@ -1,14 +1,24 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MovieCarouselComponent } from './movie-carousel.component';
+import { MoviesCardComponent } from '../movies-card/movies-card.component';
+import { RouterModule } from '@angular/router';
+import { HttpClientModule } from '@angular/common/http';
 
-describe('MovieCarouselComponent', () => {
+fdescribe('MovieCarouselComponent', () => {
   let component: MovieCarouselComponent;
   let fixture: ComponentFixture<MovieCarouselComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MovieCarouselComponent ]
+      imports: [
+        RouterModule.forRoot([]),
+        HttpClientModule
+      ],
+      declarations: [ 
+        MovieCarouselComponent,
+        MoviesCardComponent
+      ]
     })
     .compileComponents();
   }));
