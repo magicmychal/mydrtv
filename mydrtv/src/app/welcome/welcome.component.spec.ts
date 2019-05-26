@@ -1,6 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
+
+import {VgCoreModule} from 'videogular2/core';
+import {VgControlsModule} from 'videogular2/controls';
 import { WelcomeComponent } from './welcome.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('WelcomeComponent', () => {
   let component: WelcomeComponent;
@@ -8,7 +12,15 @@ describe('WelcomeComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ WelcomeComponent ]
+      imports:[
+        VgCoreModule,
+        VgControlsModule,
+        BrowserAnimationsModule
+      ],
+      declarations: [ 
+        WelcomeComponent,
+        
+        ]
     })
     .compileComponents();
   }));
