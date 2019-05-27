@@ -7,9 +7,10 @@ import {SignupComponent} from './signup/signup.component';
 import {ProfileComponent} from './profile/profile.component';
 import {LoginComponent} from './login/login.component';
 import {AuthGuardService} from './services/auth-guard.service';
-import { SearchComponent } from './search/search.component';
-import { WelcomeComponent } from "./welcome/welcome.component";
-import { MembersComponent } from "./members/members.component";
+import {SearchComponent} from './search/search.component';
+import {WelcomeComponent} from "./welcome/welcome.component";
+import {MembersComponent} from "./members/members.component";
+import {PrivacyPolicyComponent} from "./privacy-policy/privacy-policy.component";
 
 const routes: Routes = [
     {
@@ -39,9 +40,12 @@ const routes: Routes = [
         component: LoginComponent
     },
     {
-      path: 'profile',
-      component: ProfileComponent,
-      canActivate: [AuthGuardService]
+        path: 'profile',
+        canActivate: [AuthGuardService],
+        children: [
+            {path: '', component: ProfileComponent},
+            {path: 'privacyPolicy', component: PrivacyPolicyComponent},
+        ]
     },
     {
         path: 'welcome',
@@ -58,8 +62,10 @@ const routes: Routes = [
     },
     {
         path: 'members',
-        component: MembersComponent
-    },
+        component: MembersComponent,
+        canActivate: [AuthGuardService]
+    }
+
 ]
 
 

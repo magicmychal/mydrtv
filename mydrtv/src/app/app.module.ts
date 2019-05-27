@@ -25,13 +25,14 @@ import {NavbarComponent} from './navbar/navbar.component';
 import {ProfileComponent} from './profile/profile.component';
 import {MembersComponent} from './members/members.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-import { LoginComponent } from './login/login.component';
-import { MoviesCardComponent } from './movies-card/movies-card.component';
-import { SearchComponent } from './search/search.component';
-import { AngularFontAwesomeModule } from 'angular-font-awesome';
-import { FilmsSearchPipe } from './films-search.pipe'; //font awesome icons
+import {LoginComponent} from './login/login.component';
+import {MoviesCardComponent} from './movies-card/movies-card.component';
+import {SearchComponent} from './search/search.component';
+import {AngularFontAwesomeModule} from 'angular-font-awesome';
+import {FilmsSearchPipe} from './films-search.pipe'; //font awesome icons
 import {WelcomeComponent} from './welcome/welcome.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
 
 // user reducer
 import {StoreModule} from '@ngrx/store';
@@ -39,6 +40,7 @@ import {userReducer} from './redux/user-state-management/user.reducer';
 
 // dev tools
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 
 @NgModule({
     declarations: [
@@ -55,7 +57,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
         WelcomeComponent,
         SearchComponent,
         FilmsSearchPipe,
-        MembersComponent
+        MembersComponent,
+        PrivacyPolicyComponent
     ],
     imports: [
         BrowserModule,
