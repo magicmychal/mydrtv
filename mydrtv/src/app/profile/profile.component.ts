@@ -38,7 +38,7 @@ export class ProfileComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       gender: ['', Validators.required]
-    });
+    }); 
 
     // Get user data from the database
     // This data is commented out in the database now. Need another way.
