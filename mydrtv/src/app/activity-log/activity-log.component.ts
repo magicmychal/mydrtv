@@ -1,21 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
 import { ActivatedRoute, Router } from '@angular/router';
-import {AuthService} from '../services/auth.service';
-
 
 @Component({
-  selector: 'app-privacy-policy',
-  templateUrl: './privacy-policy.component.html',
-  styleUrls: ['./privacy-policy.component.scss']
+  selector: 'app-activity-log',
+  templateUrl: './activity-log.component.html',
+  styleUrls: ['./activity-log.component.scss']
 })
-export class PrivacyPolicyComponent implements OnInit {
+export class ActivityLogComponent implements OnInit {
 
   constructor(public authService: AuthService,
               private route: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit() {
-
   }
 
 }

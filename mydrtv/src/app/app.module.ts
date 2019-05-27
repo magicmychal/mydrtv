@@ -33,6 +33,7 @@ import {FilmsSearchPipe} from './films-search.pipe'; //font awesome icons
 import {WelcomeComponent} from './welcome/welcome.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {PrivacyPolicyComponent} from './privacy-policy/privacy-policy.component';
+import {ActivityLogComponent} from './activity-log/activity-log.component';
 
 // user reducer
 import {StoreModule} from '@ngrx/store';
@@ -40,6 +41,7 @@ import {userReducer} from './redux/user-state-management/user.reducer';
 
 // dev tools
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
 
 
 @NgModule({
@@ -58,7 +60,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
         SearchComponent,
         FilmsSearchPipe,
         MembersComponent,
-        PrivacyPolicyComponent
+        PrivacyPolicyComponent,
+        ActivityLogComponent
     ],
     imports: [
         BrowserModule,

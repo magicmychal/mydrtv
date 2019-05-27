@@ -11,6 +11,7 @@ import {SearchComponent} from './search/search.component';
 import {WelcomeComponent} from "./welcome/welcome.component";
 import {MembersComponent} from "./members/members.component";
 import {PrivacyPolicyComponent} from "./privacy-policy/privacy-policy.component";
+import {ActivityLogComponent} from './activity-log/activity-log.component';
 
 const routes: Routes = [
     {
@@ -45,6 +46,7 @@ const routes: Routes = [
         children: [
             {path: '', component: ProfileComponent},
             {path: 'privacyPolicy', component: PrivacyPolicyComponent},
+            {path: 'activityLog', component: ActivityLogComponent},
         ]
     },
     {
