@@ -40,7 +40,7 @@ export class NavbarComponent implements OnInit {
     this.authService.login(this.email, this.password);
   }
   
-  logout(){
+  logout() {
     console.log('You are logging out');
     this.authService.logout();
   }
