@@ -1,6 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import url('https://fonts.googleapis.com/css?family=Anton&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 /*
 Colors
@@ -48,4 +48,7 @@ input {
 input:focus, select:focus, button:focus, button:active {
   box-shadow: none !important;
   border:1px solid $main!important;
+}
+.summary{
+  background-color: white;
 }
