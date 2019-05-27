@@ -83,6 +83,6 @@ export class NavbarComponent implements OnInit {
     }
 
     getCurrentUser(): Observable<UserModel> {
-        return this.store.select('operations');
+        return this.store.select('users');
     }
 }

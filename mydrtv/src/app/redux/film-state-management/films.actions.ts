@@ -12,14 +12,16 @@ export class GetAllFilms implements Action {
 
 export class GetMovieById implements Action {
   readonly type = GET_MOVIE_BY_ID;
-  //
-  // constructor(public payload: {_id: string, Title: string, Year: string, Rated: string,
-  // Released: string, Runtime: number, Genre: string, Director: string, Writer: string,
-  // Actors: string, Plot: string, Language: string, Country: string, Awards: string,
-  // Poster: string, Type: string, Likes: number, Comments: [], VideoSource: string});
+
+  constructor(public payload: {_id: string, Title: string, Year: string, Rated: string,
+  Released: string, Runtime: number, Genre: string, Director: string, Writer: string,
+  Actors: string, Plot: string, Language: string, Country: string, Awards: string,
+  Poster: string, Type: string, Likes: number, Comments: [], VideoSource: string}) {
+
+  }
 
   // @ts-ignore
-  constructor(public payload);
+  //constructor(public payload);
 
 }
 export type FilmsActions = GetAllFilms | GetMovieById;

@@ -12,7 +12,7 @@ export class FilmModel {
   public Year: number,
   public Rated: string,
   public Released: string,
-  public Runtme: number,
+  public Runtime: number,
   public Genre: string,
   public Director: string,
   public Writer: string,

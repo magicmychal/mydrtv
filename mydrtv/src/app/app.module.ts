@@ -70,7 +70,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
         AngularFontAwesomeModule,
         BrowserAnimationsModule,
         // reducers
-        StoreModule.forRoot({films: filmReducer, operations: userReducer}),
+        StoreModule.forRoot({films: filmReducer, users: userReducer}),
         StoreDevtoolsModule.instrument({
             maxAge: 10
         })
