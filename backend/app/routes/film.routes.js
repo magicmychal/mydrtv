@@ -1,5 +1,5 @@
 module.exports = (app) => {
-    //const films-redux = require('../controllers/film.controller.js');
+    //const redux = require('../controllers/film.controller.js');
     const films = require('../controllers/film.controller');
 
     // Create a new Film

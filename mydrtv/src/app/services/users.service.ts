@@ -33,6 +33,11 @@ export class UsersService {
     );
   }
 
+  getUsers(): Observable<any> {
+    return this.http.get(endpoint).pipe(
+      map(this.extractData));
+  }
+
   getUser(id: string): Observable<any> {
     return this.http.get(endpoint + id).pipe(
       map(this.extractData));
