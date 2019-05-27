@@ -74,7 +74,7 @@
 
       <h2>Privacy settings</h2>
 
-      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="privacyForm">
       
         <div class="form-group">
           <legend>Who should see your profile?</legend>
@@ -128,9 +128,9 @@
   <div class="row">
     <div class="col-12">
 
-      <div><p>See and manage your activity log HERE.</p></div>
+      <div><p>See and manage your activity log <a id="activityButton" routerLink="/" routerLinkActive="active">HERE</a>.</p></div>
 
-      <div><p>Your data is collected in compliance to GDPR, you can read more about it in the Terms of Service and Privacy Policy</p></div>
+      <div><p>Your data is collected in compliance to GDPR, you can read more about it in the <a id="policyButton" routerLink="/" routerLinkActive="active">Terms of Service and Privacy Policy</a></p></div>
 
       <div>
         <p><strong>Do you have a question? Contact us:</strong></p>

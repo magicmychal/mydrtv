@@ -15,6 +15,7 @@ import {AuthService} from '../services/auth.service';
 export class ProfileComponent implements OnInit {
 
   profileForm: FormGroup;
+  privacyForm: FormGroup;
   public userId: string;
   notFound: string;
   selectedUser = {};
@@ -39,6 +40,10 @@ export class ProfileComponent implements OnInit {
       password: ['', [Validators.required, Validators.minLength(6)]],
       gender: ['', Validators.required]
     }); 
+
+    // We only use this form for Development Environments Exam
+    // Only for prototype reasons
+    this.privacyForm = this.fb.group({}); 
 
     // Get user data from the database
     // This data is commented out in the database now. Need another way.
