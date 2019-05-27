@@ -8,8 +8,6 @@
     </div>
 
     <div class="col-6">
-
-      <h2>Account data</h2>
       
       <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
       
@@ -60,7 +58,7 @@
       
       </form>
 
-      <div class="divDeleteUser">Do you wish to close down your account?  <a id="deleteButton" (click)="onDeleteUser()" routerLink="/" routerLinkActive="active">Delete</a></div>
+      <div class="divDeleteUser">Do you wish to close down your account?  <a id="deleteButton" (click)="onDeleteUser()" routerLink="/" routerLinkActive="active">Delete</a>.</div>
     </div>
 
   </div>
@@ -70,7 +68,7 @@
 
   <div class="row">
 
-    <div class="col-12">
+    <div class="col-7">
 
       <h2>Privacy settings</h2>
 
@@ -82,13 +80,13 @@
           <div class="form-check row">
               <input class="form-check-input" type="radio" name="available" id="public" value="public" checked>
               <label class="form-check-label" for="public">
-                public
+                Public
               </label>
           </div>
           <div class="form-check row">
               <input class="form-check-input" type="radio" name="available" id="private" value="private">
               <label class="form-check-label" for="private">
-                private
+                Private
               </label>
           </div>
         </div>
@@ -99,19 +97,19 @@
             <div class="form-check row">
                 <input class="form-check-input" type="radio" name="manageEmails" id="marketingEmails" value="marketingEmails" checked>
                 <label class="form-check-label" for="marketingEmails">
-                  marketing emails with the latest deals
+                  Marketing emails with the latest deals
                 </label>
             </div>
             <div class="form-check row">
                 <input class="form-check-input" type="radio" name="manageEmails" id="newsEmails" value="newsEmails">
                 <label class="form-check-label" for="newsEmails">
-                  new features and movies
+                  New features and movies
                 </label>
             </div>
             <div class="form-check row">
                 <input class="form-check-input" type="radio" name="manageEmails" id="minimalEmails" value="minimalEmails">
                 <label class="form-check-label" for="minimalEmails">
-                  only account and payment related (necessary for your account)
+                  Only account and payment related (necessary for your account)
                 </label>
             </div>
         </div>
@@ -121,20 +119,15 @@
         </form>
     </div>
 
-  </div>
-</div>
+    <div class="col-5 manage">
 
-<div class="container">
-  <div class="row">
-    <div class="col-12">
+      <div><p>See and manage your activity log <a id="activityButton" routerLink="/" routerLinkActive="active">here</a>.</p></div>
 
-      <div><p>See and manage your activity log <a id="activityButton" routerLink="/" routerLinkActive="active">HERE</a>.</p></div>
+      <div><p>Your data is collected in compliance to GDPR, you can read more about it in the <a id="policyButton" routerLink="/" routerLinkActive="active">Terms of Service and Privacy Policy</a>.</p></div>
 
-      <div><p>Your data is collected in compliance to GDPR, you can read more about it in the <a id="policyButton" routerLink="/" routerLinkActive="active">Terms of Service and Privacy Policy</a></p></div>
-
-      <div>
+      <div class="contact">
         <p><strong>Do you have a question? Contact us:</strong></p>
-        <p>Bit's and Bytes ApS<br>
+        <p>Bits N' Bytes ApS<br>
         contact@mydrtv.com<br>
         Tel +45 / 00 00 00 00<br>
         Lygten 37<br>

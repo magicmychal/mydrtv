@@ -4,7 +4,14 @@ $lightWhite: #dedede;
 $main: #32b859;
 
 .container {
-    margin-top: 80px;
+    margin-top: 40px;
+    border-bottom: 1px solid gray;
+    padding-bottom: 60px
+}
+
+.container:last-child {
+    margin-top: 60px;
+    border: none;
 }
 
 .profile-img {
@@ -79,4 +86,52 @@ background-color: $main!important;
 
 #savePrivacyButton {
     position: relative;
+    width: 150px;
+    margin-top: 30px;
+}
+
+h2 {
+    margin-bottom: 30px;
+    margin-top: 0;
+}
+
+legend {
+    color: $main;
+    font-size: 16px;
+    margin-top: 30px;
+}
+
+.manage {
+    margin-top: 30px;
+}
+
+.manage div p, .manage div p strong  {
+    color: gray;
+    font-size: 13px!important;
+    text-align: center;
+}
+
+.manage div a {
+    color: $main;
+    font-size: 13px!important;
+    text-align: center;
+}
+
+.contact {
+    padding-top: 30px;
+
+}
+
+.form-check {
+    margin-left: 10px;
+    margin-bottom: 7px;
+}
+
+.form-check input {
+    width: 15px;
+}
+
+.form-check label {
+    padding-left: 10px;
+    margin-top: -10px;
 }
