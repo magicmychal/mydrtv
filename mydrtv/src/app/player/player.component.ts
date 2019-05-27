@@ -33,7 +33,12 @@ export class PlayerComponent implements OnInit {
 
     ngOnInit() {
 
-
+        /*
+        OBS: If the movie is available in the state
+        then that's enough to get necessary information.
+        If the state is not created (for example, when the
+        link was shared, then we need to get the movie either way.
+         */
         // Get the movie from the store
         // Assign movie to the variable that you can use AKA SUBSCRIBE
         this.store.select('films').subscribe({
