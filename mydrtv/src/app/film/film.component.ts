@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import {FilmRestService} from '../services/film-rest.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Store} from '@ngrx/store';
+import * as FilmActions from '../redux/film-state-management/films.actions';
 
 @Component({
   selector: 'app-details',
@@ -14,7 +16,8 @@ export class FilmComponent implements OnInit {
   constructor(
     public rest: FilmRestService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private store: Store<any>
   ) { }
 
   ngOnInit() {
@@ -22,7 +25,7 @@ export class FilmComponent implements OnInit {
     this.filmId = this.route.snapshot.params.id;
     console.log('film id is: ', this.filmId);
     this.rest.getMovie(this.filmId).subscribe({
-      next: x => this.film = x,
+      next: result => {this.store.dispatch(new FilmActions.GetMovieById(result)); this.film = result;},
       error: err => this.filmNotFound(),
       complete: () => console.log('done')
     });
