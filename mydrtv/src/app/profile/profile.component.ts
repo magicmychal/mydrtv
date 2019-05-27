@@ -116,7 +116,7 @@ export class ProfileComponent implements OnInit {
 
     // Update user in the database
     this.rest.updateUser(this.currentUser._id, this.profileForm.value).subscribe({
-      next: result => this.selectedUser = result,
+      next: result => this.store.dispatch(new UserActions.LogIn(result)),
       error: err => this.userNotFound(),
       complete: () => console.log('User updated')
     })
