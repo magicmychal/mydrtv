@@ -17,7 +17,7 @@ describe('NavbarComponent', () => {
         FormsModule, 
         RouterTestingModule, 
         HttpClientModule,
-        StoreModule.forRoot({films: filmsReducer}),
+        StoreModule.forRoot({}),
       ],
       declarations: [ NavbarComponent ]
     })
