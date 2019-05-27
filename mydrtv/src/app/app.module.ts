@@ -15,7 +15,6 @@ import {AppComponent} from './app.component';
 import {PlayerComponent} from './player/player.component';
 import {FilmComponent} from './film/film.component';
 import {HttpClientModule} from '@angular/common/http';
-import {filmsReducer} from './redux/film-state-management/films.reducer';
 
 import {HomeComponent} from './home/home.component';
 import {MovieCarouselComponent} from './movie-carousel/movie-carousel.component';
@@ -33,9 +32,10 @@ import { FilmsSearchPipe } from './films-search.pipe'; //font awesome icons
 import {WelcomeComponent} from './welcome/welcome.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
-// user reducer
+// REDUX (user & film reducer)
 import {StoreModule} from '@ngrx/store';
 import {userReducer} from './redux/user-state-management/user.reducer';
+import {filmReducer} from './redux/film-state-management/films.reducer';
 
 // dev tools
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -66,12 +66,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
         VgOverlayPlayModule,
         VgBufferingModule,
         HttpClientModule,
-        StoreModule.forRoot({films: filmsReducer}),
         ReactiveFormsModule,
         AngularFontAwesomeModule,
         BrowserAnimationsModule,
         // reducers
-        StoreModule.forRoot({films: filmsReducer, operations: userReducer}),
+        StoreModule.forRoot({films: filmReducer, users: userReducer}),
         StoreDevtoolsModule.instrument({
             maxAge: 10
         })
