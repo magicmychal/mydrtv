@@ -3,6 +3,8 @@ import {FilmRestService} from '../services/film-rest.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {VgAPI} from 'videogular2/core';
 import {Globals} from '../globals';
+import {Store} from '@ngrx/store';
+import {FilmModel} from '../models/film.model';
 
 @Component({
     selector: 'app-player',
@@ -23,19 +25,19 @@ export class PlayerComponent implements OnInit {
         public rest: FilmRestService,
         private route: ActivatedRoute,
         private router: Router,
-        private globals: Globals
+        private globals: Globals,
+        private store: Store<FilmModel>
     ) {
         this.globals.hideNavBar = true;
     }
 
     ngOnInit() {
 
-        // Get the ID of the movie from the parameter
-        this.filmId = this.route.snapshot.params.id;
-        this.rest.getMovie(this.filmId).subscribe({
-            next: x => this.film = x,
-            error: err => this.filmNotFound(),
-            complete: () => console.log('done')
+
+        // Get the movie from the store
+        // Assign movie to the variable that you can use AKA SUBSCRIBE
+        this.store.select('films').subscribe({
+            next: film => this.film = film
         });
 
     }
