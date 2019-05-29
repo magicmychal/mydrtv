@@ -42,7 +42,7 @@ export class AuthService {
                 localStorage.setItem('user_id', resp.id);
                 // dispatch an action
                 const userInfo = {
-                    _id: resp.id, Name: resp.Name, Email: resp.Email, Password: resp.password, Gender: resp.Gender
+                    _id: resp.id, Name: resp.Name, Email: resp.Email, Password: resp.Password, Gender: resp.Gender
                     , History: []
                 }
                 this.store.dispatch(new UserActions.LogIn(userInfo));
