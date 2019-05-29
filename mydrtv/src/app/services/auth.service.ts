@@ -39,10 +39,10 @@ export class AuthService {
         this.http.post(this.endpoint, {email: email, password: password})
             .subscribe((resp: any) => {
                 localStorage.setItem('auth_token', resp.token);
-                localStorage.setItem('user_id', resp.id);
+                localStorage.setItem('user_id', resp._id);
                 // dispatch an action
                 const userInfo = {
-                    Id: resp._id, Name: resp.Name, Email: resp.Email, Password: resp.password, Gender: resp.Gender
+                    _id: resp._id, Name: resp.Name, Email: resp.Email, Password: resp.password, Gender: resp.Gender
                     , History: []
                 }
                 this.store.dispatch(new UserActions.LogIn(userInfo));
@@ -57,9 +57,9 @@ export class AuthService {
         this.http.post(this.endpoint, user)
             .subscribe((resp: any) => {
                 localStorage.setItem('auth_token', resp.token);
-                localStorage.setItem('user_id', resp.id);
+                localStorage.setItem('user_id', resp._id);
                 // dispatch an action
-                const userInfo = {Id: resp._id, Name: resp.Name, Email: resp.Email, Password: resp.Password, Gender: resp.Gender
+                const userInfo = {_id: resp._id, Name: resp.Name, Email: resp.Email, Password: resp.Password, Gender: resp.Gender
                     , History: []}
                 this.store.dispatch(new UserActions.LogIn(userInfo));
                 this.router.navigate(['/home']);

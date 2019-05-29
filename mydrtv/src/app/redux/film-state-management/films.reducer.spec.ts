@@ -10,9 +10,6 @@ describe('films reducer', () => {
         null, null, null, null, null, null, null,
         null, null, null, null, null);
 
-    it('should return the initial state', () => {
-        expect(filmReducer(undefined, {})).toEqual(stateBefore);
-    });
     it('should return a new state with a single movie', () => {
 
         deepFreeze(stateBefore);
