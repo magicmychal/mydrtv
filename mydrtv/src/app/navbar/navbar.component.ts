@@ -26,8 +26,7 @@ export class NavbarComponent implements OnInit {
     notFound: string;
 
     // only for the logged in user
-    currentUser: any;
-    userName: string;
+    currentUser$: any;
 
     constructor(
         private authService: AuthService,
@@ -46,7 +45,7 @@ export class NavbarComponent implements OnInit {
         we need to create the state.
          */
 
-        if (localStorage.getItem('auth_token') && !this.userName) {
+        if (localStorage.getItem('auth_token') && !this.currentUser$) {
             // dispatch action
             this.rest.getUser(localStorage.getItem('user_id')).subscribe({
                 next: userInfo => this.store.dispatch(new UserActions.LogIn(userInfo)),
@@ -56,11 +55,10 @@ export class NavbarComponent implements OnInit {
         }
 
         this.getCurrentUser().subscribe({
-            next: result => this.userName = result.Name,
+            next: result => this.currentUser$ = result,
             error: error => console.warn('something went wrong with the Observable', error),
             complete: () => console.log('call finished')
         });
-        this.currentUser = this.getCurrentUser();
     }
 
     Login() {
