@@ -1,6 +1,6 @@
 import * as NavbarActions from './navbar.actions';
 
-const initialState = {isHidden: true};
+const initialState = {isHidden: false};
 
 export function navbarReducer(
     state = initialState,
