@@ -3,6 +3,8 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { FilmComponent } from './film.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { HttpClientModule } from '@angular/common/http';
+import { StoreModule } from '@ngrx/store';
+import { filmReducer } from '../redux/film-state-management/films.reducer';
 
 describe('FilmComponent', () => {
   let component: FilmComponent;
@@ -12,7 +14,8 @@ describe('FilmComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        HttpClientModule
+        HttpClientModule,
+        StoreModule.forRoot({films: filmReducer}),
       ],
       declarations: [ FilmComponent ]
     })

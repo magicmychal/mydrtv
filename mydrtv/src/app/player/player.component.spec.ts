@@ -8,6 +8,8 @@ import {VgBufferingModule} from 'videogular2/buffering';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { Globals } from '../globals';
+import { StoreModule } from '@ngrx/store';
+import { filmReducer } from '../redux/film-state-management/films.reducer';
 
 describe('PlayerComponent', () => {
   let component: PlayerComponent;
@@ -21,7 +23,8 @@ describe('PlayerComponent', () => {
         VgOverlayPlayModule,
         VgBufferingModule,
         HttpClientModule,
-        RouterModule.forRoot([])
+        RouterModule.forRoot([]),
+        StoreModule.forRoot({films: filmReducer}),
       ],
       declarations: [ PlayerComponent ],
       providers: [Globals]
