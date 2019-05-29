@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RouterTestingModule } from '@angular/router/testing';
 import { StoreModule } from '@ngrx/store';
-import { filmsReducer } from '../redux/film-state-management/films.reducer';
+import { filmReducer } from '../redux/film-state-management/films.reducer';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -17,7 +17,7 @@ describe('NavbarComponent', () => {
         FormsModule, 
         RouterTestingModule, 
         HttpClientModule,
-        StoreModule.forRoot({}),
+        StoreModule.forRoot({films: filmReducer}),
       ],
       declarations: [ NavbarComponent ]
     })
