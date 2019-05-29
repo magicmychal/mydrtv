@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { LoginComponent } from './login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { userReducer } from '../redux/user-state-management/user.reducer';
 
 describe('LoginComponent', () => {
   let component: LoginComponent;
@@ -8,6 +13,13 @@ describe('LoginComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports:[
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        RouterModule.forRoot([]),
+        StoreModule.forRoot({users: userReducer}),
+      ],
       declarations: [ LoginComponent ]
     })
     .compileComponents();

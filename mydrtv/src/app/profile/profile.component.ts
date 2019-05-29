@@ -152,7 +152,7 @@ export class ProfileComponent implements OnInit {
   }
 
   getCurrentUser(): Observable<UserModel> {
-    return this.store.select('operations');
+    return this.store.select('users');
   }
 
 }

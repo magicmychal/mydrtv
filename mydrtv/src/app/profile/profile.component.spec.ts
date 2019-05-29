@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProfileComponent } from './profile.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { StoreModule } from '@ngrx/store';
+import { filmReducer } from '../redux/film-state-management/films.reducer';
 
 describe('ProfileComponent', () => {
   let component: ProfileComponent;
@@ -8,6 +13,13 @@ describe('ProfileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [
+        FormsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        RouterModule.forRoot([]),
+        StoreModule.forRoot({films: filmReducer}),
+      ],
       declarations: [ ProfileComponent ]
     })
     .compileComponents();

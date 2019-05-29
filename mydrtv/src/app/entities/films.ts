@@ -4,7 +4,7 @@ export class Film {
   Year: number;
   Rated: string;
   Released: string;
-  Runtme: number;
+  Runtime: number;
   Genre: string;
   Director: string;
   Writer: string;

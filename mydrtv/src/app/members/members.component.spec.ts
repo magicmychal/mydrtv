@@ -1,6 +1,11 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MembersComponent } from './members.component';
+import { AppComponent } from '../app.component';
+import { NavbarComponent } from '../navbar/navbar.component';
+import { RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 describe('MembersComponent', () => {
   let component: MembersComponent;
@@ -8,7 +13,12 @@ describe('MembersComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MembersComponent ]
+      imports: [
+        RouterModule.forRoot([]),
+        FormsModule,
+        HttpClientModule
+      ],
+      declarations: [ MembersComponent, AppComponent, NavbarComponent ]
     })
     .compileComponents();
   }));

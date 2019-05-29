@@ -41,11 +41,16 @@ export class AuthService {
                 localStorage.setItem('auth_token', resp.token);
                 localStorage.setItem('user_id', resp.id);
                 // dispatch an action
-                const userInfo = {Id: resp._id, Name: resp.Name, Email: resp.Email, Password: resp.Password, Gender: resp.Gender
-                    , History: []}
+                const userInfo = {
+                    Id: resp._id, Name: resp.Name, Email: resp.Email, Password: resp.password, Gender: resp.Gender
+                    , History: []
+                }
                 this.store.dispatch(new UserActions.LogIn(userInfo));
                 this.router.navigate(['/home']);
-            }, err => document.getElementById("wrong").style.display ="block"), document.getElementById('dropdownMenu1').setAttribute("data-toggle", "");
+            }, err => document.getElementById("wrong")
+                .style.display = "block"),
+            document.getElementById('dropdownMenu1')
+                .setAttribute("data-toggle", "");
     }
 
     loginForm(user) {
@@ -58,6 +63,6 @@ export class AuthService {
                     , History: []}
                 this.store.dispatch(new UserActions.LogIn(userInfo));
                 this.router.navigate(['/home']);
-            }, err => document.getElementById("wrong-form").style.display ="block");
+            }, err => document.getElementById('wrong-form').style.display ='block');
         }
 }

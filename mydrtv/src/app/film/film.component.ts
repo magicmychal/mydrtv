@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import {FilmRestService} from '../services/film-rest.service';
 import {ActivatedRoute, Router} from '@angular/router';
+import {Store} from '@ngrx/store';
+import * as FilmActions from '../redux/film-state-management/films.actions';
+import {FilmModel} from '../models/film.model';
+import {Film} from "../entities/films";
 
 @Component({
   selector: 'app-details',
@@ -9,22 +13,28 @@ import {ActivatedRoute, Router} from '@angular/router';
 })
 export class FilmComponent implements OnInit {
   public filmId: string;
-  film: any;
+  film: FilmModel;
   notFound: string;
   constructor(
     public rest: FilmRestService,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private store: Store<FilmModel>
   ) { }
 
   ngOnInit() {
     // Get the ID of the movie from the parameter
     this.filmId = this.route.snapshot.params.id;
     console.log('film id is: ', this.filmId);
+    // Get movie and save it to the state. It'll be used also in the player
     this.rest.getMovie(this.filmId).subscribe({
-      next: x => this.film = x,
+      next: result => this.store.dispatch(new FilmActions.GetMovieById(result)),
       error: err => this.filmNotFound(),
       complete: () => console.log('done')
+    });
+    // Assign movie to the variable that you can use AKA SUBSCRIBE
+    this.store.select('films').subscribe({
+      next: film => this.film = film
     });
   }
   // if the film was not found in the database
