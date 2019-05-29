@@ -3,19 +3,18 @@ import {FilmModel} from '../../models/film.model';
 import * as types from './films.actions';
 const deepFreeze = require('deep-freeze');
 
-fdescribe('films reducer', () => {
+describe('films reducer', () => {
     // tslint:disable-next-line:no-unused-expression
+
+    const stateBefore = new FilmModel(null, null, null, null, null, null, null,
+        null, null, null, null, null, null, null,
+        null, null, null, null, null);
+
     it('should return the initial state', () => {
-        expect(filmReducer(undefined, {})).toEqual(
-            new FilmModel(null, null, null, null, null, null, null,
-                null, null, null, null, null, null, null,
-                null, null, null, null, null)
-        );
+        expect(filmReducer(undefined, {})).toEqual(stateBefore);
     });
     it('should return a new state with a single movie', () => {
-        const stateBefore = new FilmModel(null, null, null, null, null, null, null,
-            null, null, null, null, null, null, null,
-            null, null, null, null, null);
+
         deepFreeze(stateBefore);
 
         const stateAfter = {
