@@ -65,8 +65,6 @@ export class LoginComponent implements OnInit {
 
       this.currentUser = this.getCurrentUser();
 
-      console.log(this.currentUser.email)
-
       this.loginForm = this.fb.group({
         email: [''],
         password: ['']
