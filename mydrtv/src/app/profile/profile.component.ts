@@ -42,6 +42,14 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit() {
 
+    // Create form with FormBuilder
+    this.profileForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]],
+      gender: ['', Validators.required]
+    }); 
+
     /*
     Redux state is saved for the currently open window.
     If the user closes the window and opens it up again, we lose it.
@@ -59,22 +67,10 @@ export class ProfileComponent implements OnInit {
     }
     
     this.getCurrentUser().subscribe({
-        next: result => this.currentUser = result,
+        next: result => {this.currentUser = result; this.refreshFormValues(result)},
         error: error => console.warn('something went wrong with the Observable', error),
-        complete: () => console.log('call finished')
+        complete: () => console.log('Done getCurentUSer')
     });
-
-    console.log(this.currentUser)
-
-    //this.userId = this.currentUser._id;
-
-    // Create form with FormBuilder
-    this.profileForm = this.fb.group({
-      name: [this.currentUser.Name, Validators.required],
-      email: [this.currentUser.Email, [Validators.required, Validators.email]],
-      password: [this.currentUser.Password, [Validators.required, Validators.minLength(6)]],
-      gender: [this.currentUser.Gender, Validators.required]
-    }); 
 
     // We only use this form for Development Environments Exam
     // Only for prototype reasons
@@ -90,6 +86,16 @@ export class ProfileComponent implements OnInit {
 
   }
 
+  refreshFormValues(currentuser: any): void {
+
+    // Create form with FormBuilder
+    this.profileForm.patchValue({
+      name: currentuser.Name,
+      email: currentuser.Email,
+      password: currentuser.Password,
+      gender: currentuser.Gender
+    });
+  }
 
   // Convenience getter for easy access to form fields
   get f() { return this.profileForm.controls; }
