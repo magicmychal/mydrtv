@@ -2,9 +2,16 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 
-import { User } from '../entities/users';
 import { UsersService } from '../services/users.service';
 import {AuthService} from '../services/auth.service';
+
+// Redux
+import {Store} from '@ngrx/store';
+import * as UserActions from '../redux/user-state-management/user.actions';
+
+import {UserModel} from '../models/user.model';
+import {Observable} from 'rxjs';
+
 
 @Component({
   selector: 'app-profile',
@@ -15,22 +22,25 @@ import {AuthService} from '../services/auth.service';
 export class ProfileComponent implements OnInit {
 
   profileForm: FormGroup;
+  privacyForm: FormGroup;
   public userId: string;
   notFound: string;
   selectedUser = {};
   showEditButton: boolean = true;
   showSaveButton: boolean = false;
   submitted = false;
+  currentUser: any;
+  userName: string;
 
   constructor(public rest: UsersService,
               public authService: AuthService,
               private fb: FormBuilder,
               private route: ActivatedRoute,
-              private router: Router) {  }
+              private router: Router,
+              private store: Store<UserModel>) {  }
+
 
   ngOnInit() {
-    this.userId = "5cdfd94944bd2b2ae0cb4f61";
-    console.log('Userid is: ' + this.userId);
 
     // Create form with FormBuilder
     this.profileForm = this.fb.group({
@@ -38,17 +48,34 @@ export class ProfileComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
       gender: ['', Validators.required]
+    }); 
+
+    /*
+    Redux state is saved for the currently open window.
+    If the user closes the window and opens it up again, we lose it.
+    Therefore if the state does not exist and the user is logged in
+    we need to create the state.
+    */
+
+    if (localStorage.getItem('auth_token') && !this.userName) {
+      // dispatch action
+      this.rest.getUser(localStorage.getItem('user_id')).subscribe({
+          next: userInfo => this.store.dispatch(new UserActions.LogIn(userInfo)),
+          error: err => this.userNotFound(),
+          complete: () => console.log('done')
+      });
+    }
+    
+    this.getCurrentUser().subscribe({
+        next: result => {this.currentUser = result; this.refreshFormValues(result)},
+        error: error => console.warn('something went wrong with the Observable', error),
+        complete: () => console.log('Done getCurentUSer')
     });
 
-    // Get user data from the database
-    // This data is commented out in the database now. Need another way.
-    this.rest.getUser(this.userId).subscribe({
-      next: result => this.selectedUser = result,
-      error: err => this.userNotFound(),
-      complete: () => this.onUserRetrieved(this.selectedUser)
-    });
+    // We only use this form for Development Environments Exam
+    // Only for prototype reasons
+    this.privacyForm = this.fb.group({}); 
 
-    //console.log(this.profileForm.value);
     this.profileForm.disable();
 
     // Make sure we follow the value changes in the form
@@ -59,17 +86,16 @@ export class ProfileComponent implements OnInit {
 
   }
 
-  onUserRetrieved(user: any): void {
+  refreshFormValues(currentuser: any): void {
 
-    // Update the data on the form
+    // Create form with FormBuilder
     this.profileForm.patchValue({
-        name: user.Name,
-        email: user.Email,
-        password: user.Password,
-        gender: user.Gender
+      name: currentuser.Name,
+      email: currentuser.Email,
+      password: currentuser.Password,
+      gender: currentuser.Gender
     });
   }
-
 
   // Convenience getter for easy access to form fields
   get f() { return this.profileForm.controls; }
@@ -95,8 +121,8 @@ export class ProfileComponent implements OnInit {
     this.showSaveButton = false;
 
     // Update user in the database
-    this.rest.updateUser(this.userId, this.profileForm.value).subscribe({
-      next: result => this.selectedUser = result,
+    this.rest.updateUser(this.currentUser._id, this.profileForm.value).subscribe({
+      next: result => this.store.dispatch(new UserActions.LogIn(result)),
       error: err => this.userNotFound(),
       complete: () => console.log('User updated')
     })
@@ -120,8 +146,13 @@ export class ProfileComponent implements OnInit {
   userNotFound() {
     this.notFound = 'User not found in database...';
     setTimeout(() => {
+      //console.log('User not found')
       this.router.navigate(['/']);
     }, 2000);  // 2s
+  }
+
+  getCurrentUser(): Observable<UserModel> {
+    return this.store.select('users');
   }
 
 }

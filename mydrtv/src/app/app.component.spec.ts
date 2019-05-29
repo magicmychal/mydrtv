@@ -15,7 +15,7 @@ describe('AppComponent', () => {
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
-        StoreModule.forRoot({operations: userReducer}),
+        StoreModule.forRoot({users: userReducer}),
       ],
       declarations: [
         AppComponent,

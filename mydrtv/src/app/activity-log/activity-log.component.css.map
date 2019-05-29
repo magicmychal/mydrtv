@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,YAAY;AAKZ,EAAG;EACC,UAAU,EAAE,IAAI;EAChB,KAAK,EAJF,OAAO",
+"sources": ["activity-log.component.scss"],
+"names": [],
+"file": "activity-log.component.css"
+}

@@ -18,7 +18,7 @@ describe('LoginComponent', () => {
         ReactiveFormsModule,
         HttpClientModule,
         RouterModule.forRoot([]),
-        StoreModule.forRoot({operations: userReducer}),
+        StoreModule.forRoot({users: userReducer}),
       ],
       declarations: [ LoginComponent ]
     })
