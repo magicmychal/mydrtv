@@ -10,6 +10,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class MembersComponent implements OnInit {
   private users;
   notFound: string;
+  userName: string = '';
+  userEmail: string = '';
 
   constructor(
     public rest: UsersService,
@@ -20,7 +22,7 @@ export class MembersComponent implements OnInit {
 
   ngOnInit() {
     this.rest.getUsers().subscribe({
-      next: x => this.users = x,
+      next: x => {this.users = x, this.userName = x.Name, this.userEmail = x.userEmail},
       error: err => this.userNotFound(),
       complete: () => console.log('done')
     });

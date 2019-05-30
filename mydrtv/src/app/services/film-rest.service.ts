@@ -36,14 +36,14 @@ export class FilmRestService {
 
   updateProduct(id, product): Observable<any> {
     return this.http.put(endpoint + 'products/' + id, JSON.stringify(product), httpOptions).pipe(
-      tap(_ => console.log(`updated product id=${id}`)),
+      tap(_ => console.log("updated product id="+id)),
       catchError(this.handleError<any>('updateProduct'))
     );
   }
 
   deleteProduct(id): Observable<any> {
     return this.http.delete<any>(endpoint + 'products/' + id, httpOptions).pipe(
-      tap(_ => console.log(`deleted product id=${id}`)),
+      tap(_ => console.log("deleted product id="+id)),
       catchError(this.handleError<any>('deleteProduct'))
     );
   }
@@ -55,7 +55,7 @@ export class FilmRestService {
       console.error(error); // log to console instead
 
       // TODO: better job of transforming error for user consumption
-      console.log(`${user} failed: ${error.message}`);
+      console.log(user +" failed: " + error.message);
 
       // Let the app keep running by returning an empty result.
       return of(result as T);

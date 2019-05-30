@@ -28,7 +28,7 @@ export class UsersService {
   addUser(user: User): Observable<User> {
     console.log(user);
     return this.http.post<User>(endpoint, JSON.stringify(user), httpOptions).pipe(
-      tap((newUser: User) => console.log(`added user`)),
+      tap((newUser: User) => console.log('added user')),
       catchError(this.handleError<User>('addUser'))
     );
   }
@@ -45,14 +45,14 @@ export class UsersService {
 
   updateUser(id: string, user: User): Observable<any> {
     return this.http.put(endpoint + id, JSON.stringify(user), httpOptions).pipe(
-      tap(_ => console.log(`updated user id=${id}`)),
+      tap(_ => console.log("updated user id="+id)),
       catchError(this.handleError<any>('updateUser'))
     );
   }
 
   deleteUser(id: string): Observable<User> {
     return this.http.delete<User>(endpoint+ id, httpOptions).pipe(
-      tap(_ => console.log(`deleted user id=${id}`)),
+      tap(_ => console.log("deleted user id="+id)),
       catchError(this.handleError<any>('deleteProduct'))
     );
   }
@@ -64,7 +64,7 @@ export class UsersService {
       console.error(error); // log to console instead
 
       // TODO: better job of transforming error for user consumption
-      console.log(`${user} failed: ${error.message}`);
+      console.log(user+" failed: " +error.message);
 
       // Let the app keep running by returning an empty result.
       return of(result as T);
