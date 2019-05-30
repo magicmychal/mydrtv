@@ -5,7 +5,7 @@ import {UsersService} from '../services/users.service';
 import {ActivatedRoute, Router} from '@angular/router';
 
 // Redux
-import {Store} from '@ngrx/store';
+import {resultMemoize, Store} from '@ngrx/store';
 import * as UserActions from '../redux/user-state-management/user.actions';
 
 import {UserModel} from '../models/user.model';
@@ -38,6 +38,7 @@ export class NavbarComponent implements OnInit {
     }
 
     ngOnInit() {
+
         /*
         Redux state is saved for the currently open window.
         If the user closes the window and opens it up again, we lose it.
