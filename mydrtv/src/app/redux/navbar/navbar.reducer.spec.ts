@@ -1,10 +1,10 @@
 import {navbarReducer} from './navbar.reducer';
-import * as types from 'navbar.actions';
-import {NAVBAR_STATE} from "navbar.actions";
+import * as types from './navbar.actions';
+import {NAVBAR_STATE} from "./navbar.actions";
 
 const deepFreeze = require('deep-freeze');
 
-fdescribe('navbar reducer', () => {
+describe('navbar reducer', () => {
     const stateBefore = {isHidden: false};
 
     it('should change the state to true', () => {
