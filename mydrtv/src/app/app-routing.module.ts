@@ -46,7 +46,15 @@ const routes: Routes = [
         children: [
             {path: '', component: ProfileComponent},
             {path: 'privacyPolicy', component: PrivacyPolicyComponent},
-            {path: 'activityLog', component: ActivityLogComponent},
+            {path: 'comingSoon', component: ActivityLogComponent},
+        ]
+    },
+    {
+        path: 'comingSoon',
+        canActivate: [AuthGuardService],
+        children: [
+            {path: 'films', component: ActivityLogComponent},
+            {path: 'tv', component: ActivityLogComponent}
         ]
     },
     {
