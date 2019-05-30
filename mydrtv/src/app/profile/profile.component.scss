@@ -1,0 +1,137 @@
+/* Colors */
+$blueGray: #263238;
+$lightWhite: #dedede;
+$main: #32b859;
+
+.container {
+    margin-top: 40px;
+    border-bottom: 1px solid #6e757c;
+    padding-bottom: 60px
+}
+
+.container:last-child {
+    margin-top: 60px;
+    border: none;
+}
+
+.profile-img {
+    min-width: 330px;
+    max-width: 330px;
+    min-height: 330px;
+    max-height: 330px;
+    object-fit: cover;
+    border-radius: 300px;
+}
+
+form {
+    margin: 0!important;
+    padding: 0;
+    margin-bottom: 40px!important;
+    width: 100%;
+}
+
+input:disabled, select:disabled {
+    background-color: lightgray!important;
+    color: #6e757c!important;
+}
+
+input {
+    margin-top: 0px!important;
+    margin-bottom: 30px;
+  }
+
+select, option {
+    width: 30%;
+    height: 35px;
+    background-color: transparent!important;
+    color: $lightWhite!important;
+}
+
+.invalid-feedback {
+    margin-top: -25px;
+  }
+
+.btn-primary {
+    display: block;
+    width: 30%;
+    padding: 10px;
+    position: absolute;
+    right: 0;
+    bottom: -5px;
+    background-color: transparent!important;
+    border-color: $main!important;
+    color: $lightWhite!important;
+  }
+  
+.btn-primary:hover {
+background-color: $main!important;
+}
+
+.divDeleteUser{
+    text-align: center;
+    font-size: 12px;
+    color: #6e757c;
+}
+
+#deleteButton {
+    cursor: pointer;
+    font-size: 12px;
+    color: #6e757c;
+    text-decoration: underline;
+}
+
+#deleteButton:hover {
+    color: red;
+}
+
+#savePrivacyButton {
+    position: relative;
+    width: 150px;
+    margin-top: 30px;
+}
+
+h2 {
+    margin-bottom: 30px;
+    margin-top: 0;
+}
+
+legend {
+    color: $main;
+    font-size: 16px;
+    margin-top: 30px;
+}
+
+.manage {
+    margin-top: 30px;
+}
+
+.manage div p, .manage div p strong  {
+    color: #6e757c;
+    font-size: 13px!important;
+    text-align: center;
+}
+
+.manage div a {
+    color: $main;
+    font-size: 13px!important;
+    text-align: center;
+}
+
+.contact {
+    padding-top: 30px;
+
+}
+
+.form-check {
+    margin-left: 10px;
+    margin-bottom: 7px;
+}
+
+.form-check input {
+    width: 15px;
+}
+
+.form-check label {
+    padding-left: 10px;
+    margin-top: -10px;
+}

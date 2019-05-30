@@ -1,0 +1,25 @@
+<form [formGroup]="loginForm" (ngSubmit)="Login()">
+  <h2>Login</h2>
+  
+    <input placeholder="E-mail" type="text" formControlName="email" id="txtEmailLogin" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+    <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+      <div *ngIf="f.email.errors.required">E-mail is required</div>
+      <div *ngIf="f.email.errors.email">E-mail must be a valid e-mail address</div>
+    </div>
+
+    <input placeholder="Password" type="password" formControlName="password" id="txtPasswordLogin" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+      <div *ngIf="f.password.errors.required">Password is required</div>
+      <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+    </div>
+
+  <div class="form-group">
+    <button [disabled]="loading" class="btn btn-primary" id="btnLogin">Login</button>
+  </div>
+
+</form>
+
+
+<div class="invalid" id="wrong-form">
+    <div>Wrong e-mail or password</div>
+</div>

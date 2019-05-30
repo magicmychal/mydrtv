@@ -1,0 +1,145 @@
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-4">
+      <div *ngIf="gender == 'M'"><img class="profile-img" src="../../assets/default-man.jpg"></div>
+      <div *ngIf="gender == 'F'"><img class="profile-img" src="../../assets/default-woman.jpg"></div>
+    </div>
+
+    <div class="col-6">
+      
+      <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+      
+        <label>
+          Name:
+          </label>
+          <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }">
+            <div *ngIf="submitted && f.name.errors" class="invalid-feedback">
+              <div *ngIf="f.name.errors.required">Name is required</div>
+            </div>      
+      
+        <label>
+          E-mail:
+        </label>
+            <input type="text" formControlName="email" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.email.errors }">
+            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
+              <div *ngIf="f.email.errors.required">E-mail is required</div>
+              <div *ngIf="f.email.errors.email">E-mail must be a valid e-mail address</div>
+          </div>
+      
+      
+        <label>
+            Password:
+        </label>
+            <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }">
+              <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                <div *ngIf="f.password.errors.required">Password is required</div>
+                <div *ngIf="f.password.errors.minlength">Password must be at least 6 characters</div>
+            </div>
+      
+      
+        <label>
+            Gender:
+        </label>
+            <select formControlName="gender" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.gender.errors }">
+              <option value="M" selected>Male</option>
+              <option value="F">Female</option>
+            </select>
+
+            <div *ngIf="submitted && f.gender.errors" class="invalid-feedback">
+              <div *ngIf="f.gender.errors.required">Gender is required</div>
+            </div>
+      
+
+          <button type="button" [disabled]="loading" class="btn btn-primary" (click)="onEdit()" *ngIf="showEditButton">Edit</button>
+
+          <button [disabled]="loading" class="btn btn-primary" *ngIf="showSaveButton">Save</button>
+      
+      </form>
+
+      <div class="divDeleteUser">Do you wish to close down your account?  <a id="deleteButton" (click)="onDeleteUser()" routerLink="/" routerLinkActive="active">Delete</a>.</div>
+    </div>
+
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="row">
+
+    <div class="col-7">
+
+      <h2>Privacy settings</h2>
+
+      <form [formGroup]="privacyForm">
+      
+        <div class="form-group">
+          <legend>Who should see your profile?</legend>
+
+          <div class="form-check row">
+              <input class="form-check-input" type="radio" name="available" id="public" value="public" checked>
+              <label class="form-check-label" for="public">
+                Public
+              </label>
+          </div>
+          <div class="form-check row">
+              <input class="form-check-input" type="radio" name="available" id="private" value="private">
+              <label class="form-check-label" for="private">
+                Private
+              </label>
+          </div>
+        </div>
+
+        <div class="form-group">
+            <legend>Manage what emails you get</legend>
+  
+            <div class="form-check row">
+                <input class="form-check-input" type="radio" name="manageEmails" id="marketingEmails" value="marketingEmails" checked>
+                <label class="form-check-label" for="marketingEmails">
+                  Marketing emails with the latest deals
+                </label>
+            </div>
+            <div class="form-check row">
+                <input class="form-check-input" type="radio" name="manageEmails" id="newsEmails" value="newsEmails">
+                <label class="form-check-label" for="newsEmails">
+                  New features and movies
+                </label>
+            </div>
+            <div class="form-check row">
+                <input class="form-check-input" type="radio" name="manageEmails" id="minimalEmails" value="minimalEmails">
+                <label class="form-check-label" for="minimalEmails">
+                  Only account and payment related (necessary for your account)
+                </label>
+            </div>
+        </div>
+
+        <button class="btn btn-primary" id="savePrivacyButton">Save</button>
+        
+        </form>
+    </div>
+
+    <div class="col-5 manage">
+
+      <div><p>See and manage your activity log <a id="activityButton" routerLink="activityLog" routerLinkActive="active">here</a>.</p></div>
+
+      <div><p>Your data is collected in compliance to GDPR, you can read more about it in the <a id="policyButton" routerLink="privacyPolicy" routerLinkActive="active">Terms of Service and Privacy Policy</a>.</p></div>
+
+      <div class="contact">
+        <p><strong>Do you have a question? Contact us:</strong></p>
+        <p>Bits N' Bytes ApS<br>
+        contact@mydrtv.com<br>
+        Tel +45 / 00 00 00 00<br>
+        Lygten 37<br>
+        Copenhagen N 2400<br>
+        CVR: XXXXXXXXXX</p>
+      </div>
+
+    </div>
+
+  </div>
+
+
+</div>
+

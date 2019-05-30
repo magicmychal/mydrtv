@@ -1,1 +1,54 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+
+/*
+Colors
+*/
+$blueGray: #263238;
+$lightWhite: #dedede;
+$main: #32b859;
+
+* {
+  font-size: 16px;
+  font-family: 'Montserrat'!important;
+}
+
+body {
+  margin: 0 !important;
+  background-color: $blueGray !important;
+  color: $lightWhite !important;
+}
+
+form {
+  width: 500px;
+  position: relative;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+input {
+  position: relative;
+  width: 100%;
+  background-color: transparent!important;
+  color: $lightWhite!important;
+  margin-top: 40px!important;
+}
+
+.invalid-feedback div {
+  font-size: 12px;
+  float: right;
+}
+
+.invalid-feedback {
+  color: red;
+  position: absolute;
+}
+
+input:focus, select:focus, button:focus, button:active {
+  box-shadow: none !important;
+  border:1px solid $main!important;
+}
+.summary{
+  background-color: white;
+}
