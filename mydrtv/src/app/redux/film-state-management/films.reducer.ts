@@ -1,15 +1,13 @@
-import * as FilmActions from './films.actions';
+import * as FilmsActions from './films.actions';
 import {FilmModel} from '../../models/film.model';
 
-const initialState = new FilmModel(null, null, null, null, null, null, null,
-    null, null, null, null, null, null, null,
-    null, null, null, null, null);
+const initialState = {} as FilmModel;
 
 export function filmReducer(
     state = initialState,
-    action: FilmActions.FilmsActions) {
+    action: any) {
     switch (action.type) {
-        case FilmActions.GET_MOVIE_BY_ID:
+        case FilmsActions.GET_MOVIE_BY_ID:
             return {
                 ...state,
                 ...action.payload

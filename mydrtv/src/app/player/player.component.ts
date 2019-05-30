@@ -1,17 +1,18 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FilmRestService} from '../services/film-rest.service';
 import {ActivatedRoute, Router} from '@angular/router';
 import {VgAPI} from 'videogular2/core';
 import {Globals} from '../globals';
 import {Store} from '@ngrx/store';
 import {FilmModel} from '../models/film.model';
+import * as NavbarActions from "../redux/navbar/navbar.actions";
 
 @Component({
     selector: 'app-player',
     templateUrl: './player.component.html',
     styleUrls: ['./player.component.scss']
 })
-export class PlayerComponent implements OnInit {
+export class PlayerComponent implements OnInit, OnDestroy {
     // filmId used to determine which movie to play
     public filmId: string;
     // it's the object that is returned in an observable
@@ -26,12 +27,13 @@ export class PlayerComponent implements OnInit {
         private route: ActivatedRoute,
         private router: Router,
         private globals: Globals,
-        private store: Store<FilmModel>
+        private store: Store<any>
     ) {
-        this.globals.hideNavBar = true;
     }
 
     ngOnInit() {
+        // hide the navbar
+        this.store.dispatch(new NavbarActions.GetNavbarState({isHidden: true}))
 
         /*
         OBS: If the movie is available in the state
@@ -45,6 +47,10 @@ export class PlayerComponent implements OnInit {
             next: film => this.film = film
         });
 
+    }
+
+    ngOnDestroy() {
+        this.store.dispatch(new NavbarActions.GetNavbarState({isHidden: false}))
     }
 
     // if the film was not found in the database

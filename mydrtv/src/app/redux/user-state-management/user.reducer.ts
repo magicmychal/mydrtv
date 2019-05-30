@@ -1,7 +1,7 @@
 import * as UserActions from './user.actions';
 import {UserModel} from '../../models/user.model';
 
-const initialState = new UserModel(null, null, null, null, null);
+const initialState = new UserModel(null, null, null, null, null, null);
 
 export function userReducer(
     state = initialState,

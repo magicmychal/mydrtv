@@ -11,6 +11,12 @@ export class MoviesCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (!this.film){
+      this.film = {
+        _id:'ll'
+      }
+    }
+
   }
 
 }

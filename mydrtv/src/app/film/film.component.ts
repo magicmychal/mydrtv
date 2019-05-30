@@ -25,6 +25,9 @@ export class FilmComponent implements OnInit {
   ngOnInit() {
     // Get the ID of the movie from the parameter
     this.filmId = this.route.snapshot.params.id;
+    if(this.filmId == undefined){
+      this.filmId = '5cd9655d19fcad52cc9bb9ad'; 
+    }
     console.log('film id is: ', this.filmId);
     // Get movie and save it to the state. It'll be used also in the player
     this.rest.getMovie(this.filmId).subscribe({

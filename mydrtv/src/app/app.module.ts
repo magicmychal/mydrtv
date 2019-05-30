@@ -41,6 +41,7 @@ import {filmReducer} from './redux/film-state-management/films.reducer';
 
 // dev tools
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {navbarReducer} from "./redux/navbar/navbar.reducer";
 
 
 
@@ -76,7 +77,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
         AngularFontAwesomeModule,
         BrowserAnimationsModule,
         // reducers
-        StoreModule.forRoot({films: filmReducer, users: userReducer}),
+        StoreModule.forRoot({films: filmReducer, users: userReducer, navbar: navbarReducer}),
         StoreDevtoolsModule.instrument({
             maxAge: 10
         })

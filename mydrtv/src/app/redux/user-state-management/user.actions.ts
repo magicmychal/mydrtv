@@ -16,7 +16,7 @@ export class SaveUserInfo implements Action {
 export class LogIn implements Action {
     readonly type = LOG_IN;
 
-    constructor(public payload: { Email: string; Gender: string; History: any[]; Name: string; Password: string }) {
+    constructor(public payload: { _id: string; Email: string; Gender: string; History: any[]; Name: string; Password: string }) {
     }
 }
 

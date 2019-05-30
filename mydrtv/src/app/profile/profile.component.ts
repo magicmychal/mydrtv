@@ -31,6 +31,7 @@ export class ProfileComponent implements OnInit {
   submitted = false;
   currentUser: any;
   userName: string;
+  gender: string = '';
 
   constructor(public rest: UsersService,
               public authService: AuthService,
@@ -95,6 +96,8 @@ export class ProfileComponent implements OnInit {
       password: currentuser.Password,
       gender: currentuser.Gender
     });
+
+    this.gender = this.currentUser.Gender;
   }
 
   // Convenience getter for easy access to form fields
